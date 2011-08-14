@@ -1,0 +1,9 @@
+vmmlib:
+  http://vmmlib.sourceforge.net/
+
+JsonCpp:
+  http://jsoncpp.sourceforge.net/
+
+UseDoxygen:
+  http://tobias.rautenkranz.ch/cmake/doxygen/
+
