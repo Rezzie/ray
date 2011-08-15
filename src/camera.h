@@ -42,7 +42,9 @@ class Camera
 
       Camera();
 
-      Ray SpawnRay(int x, int y);
+// FIXME
+      Ray SpawnRay(int x, int y, float sx, float sy);
+// FIXME
 
    protected:
 

@@ -52,20 +52,34 @@ int main(int argc, char *argv[])
    // One sphere in our scene originally...
    Sphere s(vec3f(0.0f, 1.0f, 2.0f), 2.0f);
 
+// FIXME
+   float m_WX1, m_WY1, m_WX2, m_WY2, m_DX, m_DY, m_SX, m_SY;
+   m_WX1 = -4, m_WX2 = 4, m_WY1 = m_SY = 3, m_WY2 = -3;
+   m_DX = (m_WX2 - m_WX1) / vp.Width;
+   m_DY = (m_WY2 - m_WY1) / vp.Height;
+   m_SY += 20 * m_DY;
+// FIXME
+
    // Loop through each pixel from left-to-right, one row at a time.
    for (int y = 0; y < vp.Height; y++)
+   {
+// FIXME
+      m_SX = m_WX1;
+// FIXME
+
       for (int x = 0; x < vp.Width; x++)
       {
          // Spawn a ray from the camera through the current pixel
-         Ray ray = cam.SpawnRay(x, y);
+// FIXME
+         Ray ray = cam.SpawnRay(x, y, m_SX, m_SY);
+// FIXME
 
          // Create a colour to store the final colour of the pixel,
          // defaulting to the background colour
-         Colour colour = {
-            .R = 255,
-            .G = 0,
-            .B = 255
-         };
+         Colour colour;
+         colour.R = 255;
+         colour.G = 0;
+         colour.B = 255;
 
          // Keep track of which primitive (if any) has had the closest intersection
          float closest = std::numeric_limits<float>::max();
@@ -82,7 +96,16 @@ int main(int argc, char *argv[])
 
          // Draw the colour
          img.SetPixel(x, y, colour);
+
+// FIXME
+         m_SX += m_DX;
+// FIXME
+
       }
+// FIXME
+      m_SY += m_DY;
+// FIXME
+   }
 
    // Save the image
    img.Save("render.ppm");

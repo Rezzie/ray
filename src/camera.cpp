@@ -152,8 +152,15 @@ Camera::Camera()
    }
 }
 
-Ray Camera::SpawnRay(int x, int y)
+// FIXME
+Ray Camera::SpawnRay(int x, int y, float sx, float sy)
 {
+// FIXME
+   vec3f o = vec3f(0.0f, 0.0f, -5.0f);
+   vec3f d = vec3f(sx, sy, 0.0f) - o;
+   d.normalize();
+   return Ray(o, d);
+// FIXME
 
    // TODO: Don't hardcode this
    const int width = 640;
