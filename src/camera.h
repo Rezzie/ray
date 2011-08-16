@@ -29,13 +29,14 @@ class Ray;
 
 using namespace vmml;
 
-
+//! The type of projection to use when ejecting ray's from the camera.
 enum Projection
 {
-   PERSPECTIVE,
-   ORTHOGRAPHIC
+   PERSPECTIVE, /*! Simulates a pinhole camera. */
+   ORTHOGRAPHIC /*! Parallel camera rays are used to view the scene. */
 };
 
+//! Models a camera, providing a view into a scene.
 class Camera
 {
    public:

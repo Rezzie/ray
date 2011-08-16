@@ -27,24 +27,39 @@
 using namespace vmml;
 
 
+//! Represents a ray, fired from the camera into the scene.
 class Ray
 {
    public:
 
+      //! Initialises a new ray with the given origin and direction.
+      /*! \param origin The ray's origin.
+       *  \param direction The ray's direction.
+       */
       Ray(vec3f origin, vec3f direction);
 
+      //! Gets the ray's direction.
       vec3f& GetDirection();
 
+      //! Gets the ray's origin.
       vec3f& GetOrigin();
 
+      //! Sets the ray's direction.
+      /*! \param direction The new direction. This must be normalised.
+       */
       void SetDirection(vec3f& direction);
 
+      //! Sets the ray's origin.
+      /*! \param origin The new origin.
+       */
       void SetOrigin(vec3f& origin);
 
    private:
 
+      //! The ray's origin.
       vec3f _origin;
 
+      //! The ray's direction.
       vec3f _direction;
 
 };
