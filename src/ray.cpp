@@ -22,28 +22,28 @@
 #include "ray.h"
 
 
-Ray::Ray(vmml::vec3f origin, vmml::vec3f direction)
+Ray::Ray(vec3f origin, vec3f direction)
    : _origin(origin), _direction(direction)
 {
    return;
 }
 
-vmml::vec3f& Ray::GetDirection()
+vec3f& Ray::GetDirection()
 {
    return _direction;
 }
 
-vmml::vec3f& Ray::GetOrigin()
+vec3f& Ray::GetOrigin()
 {
    return _origin;
 }
 
-void Ray::SetDirection(vmml::vec3f& direction)
+void Ray::SetDirection(vec3f& direction)
 {
    _direction = direction;
 }
 
-void Ray::SetOrigin(vmml::vec3f& origin)
+void Ray::SetOrigin(vec3f& origin)
 {
    _origin = origin;
 }

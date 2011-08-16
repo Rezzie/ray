@@ -24,26 +24,28 @@
 
 #include <vmmlib/vector.hpp>
 
+using namespace vmml;
+
 
 class Ray
 {
    public:
 
-      Ray(vmml::vec3f origin, vmml::vec3f direction);
+      Ray(vec3f origin, vec3f direction);
 
-      vmml::vec3f& GetDirection();
+      vec3f& GetDirection();
 
-      vmml::vec3f& GetOrigin();
+      vec3f& GetOrigin();
 
-      void SetDirection(vmml::vec3f& direction);
+      void SetDirection(vec3f& direction);
 
-      void SetOrigin(vmml::vec3f& origin);
+      void SetOrigin(vec3f& origin);
 
    private:
 
-      vmml::vec3f _origin;
+      vec3f _origin;
 
-      vmml::vec3f _direction;
+      vec3f _direction;
 
 };
 
