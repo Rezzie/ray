@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
    Image img(vp.Width, vp.Height);
 
    // One sphere in our scene originally...
-   Sphere s(vec3f(0.0f, 1.0f, 2.0f), 2.0f);
+   Sphere s(vec3f(0.0f, 0.0f, 0.0f), 1.0f);
 
 // FIXME
    float m_WX1, m_WY1, m_WX2, m_WY2, m_DX, m_DY, m_SX, m_SY;

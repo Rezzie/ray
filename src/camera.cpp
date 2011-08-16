@@ -41,7 +41,7 @@ Camera::Camera()
 
 
    // TODO: Remove
-   _location = vec3f(0.0f, 2.0f, -3.0f);
+   _location = vec3f(0.0f, 0.0f, -5.0f);
    _lookAt = vec3f(0.0f, 1.0f, 2.0f);
    // TODO: Remove
 
@@ -156,7 +156,7 @@ Camera::Camera()
 Ray Camera::SpawnRay(int x, int y, float sx, float sy)
 {
 // FIXME
-   vec3f o = vec3f(0.0f, 0.0f, -5.0f);
+   vec3f o = _location;
    vec3f d = vec3f(sx, sy, 0.0f) - o;
    d.normalize();
    return Ray(o, d);
@@ -176,11 +176,9 @@ Ray Camera::SpawnRay(int x, int y, float sx, float sy)
 
    if (_type == PERSPECTIVE)
    {
-      /* Convert the x coordinate to be a DBL from -0.5 to 0.5. */
-      x0 = x / (float) width - 0.5;
-
-      /* Convert the y coordinate to be a DBL from -0.5 to 0.5. */
-      y0 = ((float) (height - 1) - y) / (float) height - 0.5;
+      // Convert X & Y to be floats between -0.5 and +0.5
+      x0 = (x / (float) width) - 0.5;
+      y0 = (((float) (height - 1) - y) / (float) height) - 0.5;
 
       /* Create primary ray. */
       rd = vec3f(1.0f * _direction.x() + x0 * _right.x() + y0 * _up.x(),
@@ -190,11 +188,9 @@ Ray Camera::SpawnRay(int x, int y, float sx, float sy)
    }
    else if (_type == ORTHOGRAPHIC)
    {
-      /* Convert the x coordinate to be a DBL from -0.5 to 0.5. */
-      x0 = x / (float) width - 0.5;
-
-      /* Convert the y coordinate to be a DBL from -0.5 to 0.5. */
-      y0 = ((float) (height - 1) - y) / (float) height - 0.5;
+      // Convert X & Y to be floats between -0.5 and +0.5
+      x0 = (x / (float) width) - 0.5;
+      y0 = (((float) (height - 1) - y) / (float) height) - 0.5;
 
       /* Create primary ray. */
       ro = vec3f(1.0f * _location.x() + x0 * _right.x() + y0 * _up.x(),
