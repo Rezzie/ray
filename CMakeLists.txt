@@ -33,8 +33,8 @@ INCLUDE_DIRECTORIES (include)
 
 SET (SRCS src/main.cpp
           src/ray.cpp
-          src/image.cpp
           src/camera.cpp
+          src/rendersurface.cpp
           src/primitives/primitive.cpp
           src/primitives/sphere.cpp)
 

@@ -19,36 +19,46 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "image.h"
+#include "rendersurface.h"
 
 #include <stdio.h>
 
 
-Image::Image(int width, int height)
+RenderSurface::RenderSurface(int width, int height)
    : _width(width), _height(height)
 {
    _data = new Colour[width * height];
 }
 
-Image::~Image()
+RenderSurface::~RenderSurface()
 {
    delete[] _data;
 }
 
-Colour Image::GetPixel(int x, int y)
+Colour RenderSurface::GetPixel(int x, int y)
 {
    return _data[x + y * _width];
 }
 
-void Image::SetPixel(int x, int y, Colour colour)
+void RenderSurface::SetPixel(int x, int y, Colour colour)
 {
    _data[x + y * _width] = colour;
 }
 
-void Image::Save(std::string file)
+void RenderSurface::Save(std::string file, ImageFormat format)
 {
    FILE *output = fopen(file.c_str(), "w");
 
+   switch (format)
+   {
+      case PPM: ToPPM(output); break;
+   }
+
+   fclose(output);
+}
+
+void RenderSurface::ToPPM(FILE *output)
+{
    fprintf(output, "P3\n");
    fprintf(output, "%d %d\n", _width, _height);
    fprintf(output, "255\n");
@@ -62,6 +72,4 @@ void Image::Save(std::string file)
       }
       fprintf(output, "\n");
    }
-
-   fclose(output);
 }

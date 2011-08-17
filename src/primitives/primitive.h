@@ -22,7 +22,7 @@
 #ifndef _INCLUDED_6AADDAD8406C40EA
 #define _INCLUDED_6AADDAD8406C40EA
 
-#include "../image.h"
+#include "../rendersurface.h"
 
 // Forward declarations
 class Ray;

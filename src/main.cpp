@@ -22,8 +22,8 @@
 #include "main.h"
 
 #include "camera.h"
-#include "image.h"
 #include "ray.h"
+#include "rendersurface.h"
 #include "primitives/sphere.h"
 
 #include <vmmlib/vector.hpp>
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
    vp.Height = 480;
 
    // The image we'll be rendering to
-   Image img(vp.Width, vp.Height);
+   RenderSurface surface(vp.Width, vp.Height);
 
    // One sphere in our scene originally...
    Sphere s(vec3f(0.0f, 0.0f, 0.0f), 1.0f);
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
          }
 
          // Draw the colour
-         img.SetPixel(x, y, colour);
+         surface.SetPixel(x, y, colour);
 
 // FIXME
          m_SX += m_DX;
@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
    }
 
    // Save the image
-   img.Save("render.ppm");
+   surface.Save("render.ppm", PPM);
 
    // All done!
    return EXIT_SUCCESS;

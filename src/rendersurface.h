@@ -32,18 +32,23 @@ struct Colour
    int B;
 };
 
-class Image
+enum ImageFormat
+{
+   PPM
+};
+
+class RenderSurface
 {
 
    public:
 
-      Image(int width, int height);
-      ~Image();
+      RenderSurface(int width, int height);
+      ~RenderSurface();
 
       Colour GetPixel(int x, int y);
       void SetPixel(int x, int y, Colour colour);
 
-      void Save(std::string file);
+      void Save(std::string file, ImageFormat format = PPM);
 
    private:
 
@@ -51,6 +56,8 @@ class Image
       int _height;
 
       Colour *_data;
+
+      void ToPPM(FILE* output);
 
 };
 
