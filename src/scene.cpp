@@ -62,8 +62,8 @@ void Scene::Render() const
       for (int x = 0; x < vp.GetWidth(); x++)
       {
          // Calculate ray's origin using orthographic projection
-         double xs = vp.GetSize() * (x - 0.5 * (y - 1.0));
-         double ys = vp.GetSize() * (y - 0.5 * (x - 1.0));
+         double xs = vp.GetSize() * (x - 0.5 * (vp.GetWidth() - 1.0));
+         double ys = vp.GetSize() * (y - 0.5 * (vp.GetHeight() - 1.0));
          ray.Origin = vec(xs, ys, z);
 
          // Trace the ray through the scene
