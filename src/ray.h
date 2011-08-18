@@ -43,13 +43,13 @@ class Ray
       /*! \param origin The ray's origin.
        *  \param direction The ray's direction.
        */
-      Ray(const vec3f &origin, const vec3f &direction);
+      Ray(const vec &origin, const vec &direction);
 
       //! The ray's origin.
-      vec3f Origin;
+      vec Origin;
 
       //! The ray's direction. This should always be normalised.
-      vec3f Direction;
+      vec Direction;
 
 };
 

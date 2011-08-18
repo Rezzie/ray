@@ -47,7 +47,7 @@ class Sphere : public Primitive
       /*! \param centre The sphere's centre.
        *  \param radius The sphere's radius.
        */
-      Sphere(const vec3f &centre, double radius);
+      Sphere(const vec &centre, double radius);
 
       //! Instantiates a new sphere primitive.
       /*! \param x The X-ordinate of the sphere's centre.
@@ -58,12 +58,12 @@ class Sphere : public Primitive
       Sphere(double x, double y, double z, double radius);
 
       //! Gets the sphere's centre.
-      vec3f& GetCentre();
+      vec& GetCentre();
 
       //! Sets the sphere's centre.
       /*! \param value The new centre of the sphere.
        */
-      void SetCentre(vec3f &value);
+      void SetCentre(vec &value);
 
       //! Gets the sphere's radius.
       double GetRadius();
@@ -80,7 +80,7 @@ class Sphere : public Primitive
 
    private:
 
-      vec3f  c;  /*! The sphere's centre. */
+      vec  c;  /*! The sphere's centre. */
       double r;  /*! The sphere's radius. */
       double r2; /*! The square of the sphere's radius. */
 

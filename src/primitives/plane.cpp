@@ -23,8 +23,8 @@
 
 
 Plane::Plane()
-   : a(vec3f(0.0)),
-     n(vec3f(0.0, 1.0, 0.0))
+   : a(vec(0.0)),
+     n(vec(0.0, 1.0, 0.0))
 {
 }
 
@@ -36,7 +36,7 @@ Plane::Plane(const Plane &plane)
 }
 
 
-Plane::Plane(const vec3f &point, const vec3f &normal)
+Plane::Plane(const vec &point, const vec &normal)
    : a(point),
      n(normal)
 {
@@ -45,26 +45,26 @@ Plane::Plane(const vec3f &point, const vec3f &normal)
 }
 
 
-vec3f& Plane::GetNormal()
+vec& Plane::GetNormal()
 {
    return n;
 }
 
 
-void Plane::SetNormal(vec3f &value)
+void Plane::SetNormal(vec &value)
 {
    n = value;
    n.normalize();
 }
 
 
-vec3f& Plane::GetPoint()
+vec& Plane::GetPoint()
 {
    return a;
 }
 
 
-void Plane::SetPoint(vec3f &value)
+void Plane::SetPoint(vec &value)
 {
    a = value;
 }

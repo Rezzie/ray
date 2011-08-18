@@ -38,10 +38,10 @@ void Scene::Build()
    vp = ViewPlane();
 
    // Default to a black background
-   background = vec3f(0.0);
+   background = vec(0.0);
 
    // Default sphere at origin
-   sphere = Sphere(vec3f(0.0), 85.0);
+   sphere = Sphere(vec(0.0), 85.0);
 
    tracer = new SingleSphere(this);
 }
@@ -56,7 +56,7 @@ void Scene::Render() const
    PPM img(vp.GetWidth(), vp.GetHeight());
 
    // Create a ray to trace through the scene
-   Ray ray(vec3f(0.0), vec3f(0.0, 0.0, -1.0));
+   Ray ray(vec(0.0), vec(0.0, 0.0, -1.0));
 
    for (int y = 0; y < vp.GetHeight(); y++)
       for (int x = 0; x < vp.GetWidth(); x++)
@@ -64,7 +64,7 @@ void Scene::Render() const
          // Calculate ray's origin using orthographic projection
          double xs = vp.GetSize() * (x - 0.5 * (y - 1.0));
          double ys = vp.GetSize() * (y - 0.5 * (x - 1.0));
-         ray.Origin = vec3f(xs, ys, z);
+         ray.Origin = vec(xs, ys, z);
 
          // Trace the ray through the scene
          Colour colour = tracer->Trace(ray);
