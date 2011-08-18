@@ -26,8 +26,6 @@ Plane::Plane()
    : a(vec3f(0.0)),
      n(vec3f(0.0, 1.0, 0.0))
 {
-   // Ensure the normal is normalised.
-   _normal.normalize();
 }
 
 
@@ -38,12 +36,12 @@ Plane::Plane(const Plane &plane)
 }
 
 
-Plane::Plane(const vec3f point, const vec3f normal)
+Plane::Plane(const vec3f &point, const vec3f &normal)
    : a(point),
      n(normal)
 {
    // Ensure the normal vector is normalised.
-   _normal.normalize();
+   n.normalize();
 }
 
 /*
@@ -72,10 +70,10 @@ void SetPoint(vec3f value)
 }
 */
 
-bool Plane::Intersect(Ray &ray, double &dist)
+bool Plane::Intersect(Ray &ray, double &dist) const
 {
 
-   double t = (a - ray.Origin) * n / (ray.Direction * n);
+   double t = (a - ray.Origin).dot(n) / ray.Direction.dot(n);
 
    if (t > EPSILON)
    {

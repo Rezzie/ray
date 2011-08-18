@@ -19,32 +19,64 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_6AADDAD8406C40EA
-#define _INCLUDED_6AADDAD8406C40EA
-
-#include "../common.h"
-
-#include "../ray.h"
+#include "viewplane.h"
 
 
-//! An abstract base class for all primitive objects.
-class Primitive
+ViewPlane::ViewPlane()
+   : w(64),
+     h(48),
+     s(1.0)
 {
+}
 
-   public:
 
-      //! Instantiates a default primitive.
-      Primitive();
+ViewPlane::ViewPlane(int width, int height)
+   : w(width),
+     h(height),
+     s(1.0)
+{
+}
 
-      //! Instantiates a new primitive.
-      Primitive(const Primitive &primitive);
 
-      //! Checks whether a ray intersects with the primitive.
-      /*! \param ray The ray to check for an intersection with.
-       *  \param dist The distance to the closest intersection point, if one occurs.
-       */
-      virtual bool Intersect(Ray &ray, double &dist) const = 0;
+ViewPlane::ViewPlane(int width, int height, double size)
+   : w(width),
+     h(height),
+     s(size)
+{
+}
 
-};
 
-#endif // _INCLUDED_6AADDAD8406C40EA
+int ViewPlane::GetWidth()
+{
+   return w;
+}
+
+
+void ViewPlane::SetWidth(int value)
+{
+   w = value;
+}
+
+
+int ViewPlane::GetHeight()
+{
+   return h;
+}
+
+
+void ViewPlane::SetHeight(int value)
+{
+   h = value;
+}
+
+
+int ViewPlane::GetSize()
+{
+   return s;
+}
+
+
+void ViewPlane::SetSize(int value)
+{
+   s = value;
+}
