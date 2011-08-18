@@ -21,6 +21,8 @@
 
 #include "scene.h"
 
+#include "renderers/ppm.h"
+
 
 Scene::Scene()
 {
@@ -34,10 +36,39 @@ void Scene::Build()
 
    // Default to a black background
    background = vec3f(0.0);
+
+   // Default sphere at origin
+   sphere = Sphere(vec3f(0.0), 85.0);
 }
 
 
 void Scene::Render() const
 {
-   ;
+   // Hardcode viewing plane's Z location (for now)
+   double z = 100.0;
+
+   // Create a render target to match the scene's viewing plane resolution.
+   PPM img(vp.GetWidth(), vp.GetHeight(), "render.ppm");
+
+   // Create a ray to trace through the scene
+   Ray ray(vec3f(0.0), vec3f(0.0, 0.0, -1.0));
+
+   for (int y = 0; y < vp.GetHeight(); y++)
+      for (int x = 0; x < vp.GetWidth(); x++)
+      {
+         // Calculate ray's origin using orthographic projection
+         double xs = vp.GetSize() * (x - 0.5 * (y - 1.0));
+         double ys = vp.GetSize() * (y - 0.5 * (x - 1.0));
+         ray.Origin = vec3f(xs, ys, z);
+
+         // Trace the ray through the scene
+         Colour colour = tracer->Trace(ray);
+
+         // Render the pixel
+         img.SetPixel(x, y, colour);
+      }
+
+   // Save the output
+   img.Save();
+
 }

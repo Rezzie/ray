@@ -38,6 +38,8 @@ SET (SRCS src/main.cpp
           src/primitives/plane.cpp
           src/primitives/primitive.cpp
           src/primitives/sphere.cpp
+          src/renderers/rendertarget.cpp
+          src/renderers/ppm.cpp
           src/tracers/tracer.cpp)
 
 

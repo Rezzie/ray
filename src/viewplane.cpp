@@ -46,7 +46,7 @@ ViewPlane::ViewPlane(int width, int height, double size)
 }
 
 
-int ViewPlane::GetWidth()
+int ViewPlane::GetWidth() const
 {
    return w;
 }
@@ -58,7 +58,7 @@ void ViewPlane::SetWidth(int value)
 }
 
 
-int ViewPlane::GetHeight()
+int ViewPlane::GetHeight() const
 {
    return h;
 }
@@ -70,7 +70,7 @@ void ViewPlane::SetHeight(int value)
 }
 
 
-int ViewPlane::GetSize()
+int ViewPlane::GetSize() const
 {
    return s;
 }

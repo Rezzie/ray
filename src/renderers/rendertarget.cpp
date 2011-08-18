@@ -19,41 +19,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_62FAB5E09A7D41FF
-#define _INCLUDED_62FAB5E09A7D41FF
+#include "rendertarget.h"
 
-#include "common.h"
-
-#include <string>
+#include <stdexcept>
 
 
-enum ImageFormat
+RenderTarget::RenderTarget(int width, int height)
+   : _width(width),
+     _height(height)
 {
-   PPM
-};
+   _data = new Colour[width * height];
+}
 
-class RenderSurface
+
+RenderTarget::~RenderTarget()
 {
+   delete[] _data;
+}
 
-   public:
 
-      RenderSurface(int width, int height);
-      ~RenderSurface();
+Colour RenderTarget::GetPixel(int x, int y)
+{
+   if (x > _width)
+      throw std::out_of_range ("x");
+   if (y > _height)
+      throw std::out_of_range ("y");
 
-      Colour GetPixel(int x, int y);
-      void SetPixel(int x, int y, Colour colour);
+   return _data[x + y * _width];
+}
 
-      void Save(std::string file, ImageFormat format = PPM);
 
-   private:
-
-      int _width;
-      int _height;
-
-      Colour *_data;
-
-      void ToPPM(FILE* output);
-
-};
-
-#endif // _INCLUDED_62FAB5E09A7D41FF
+void RenderTarget::SetPixel(int x, int y, Colour colour)
+{
+   _data[x + y * _width] = colour;
+}

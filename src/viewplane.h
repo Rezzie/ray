@@ -48,7 +48,7 @@ class ViewPlane
 		ViewPlane(int width, int height, double size);
 
       //! Gets the horizontal resolution of the viewing plane.
-      int GetWidth();
+      int GetWidth() const;
 
       //! Sets the horizontal resolution of the viewing plane.
       /*! \param value The new horizontal resolution.
@@ -56,7 +56,7 @@ class ViewPlane
       void SetWidth(int value);
 
       //! Gets the vertical resolution of the viewing plane.
-      int GetHeight();
+      int GetHeight() const;
 
       //! Sets the vertical resolution of the viewing plane.
       /*! \param value The new vertical resolution.
@@ -64,7 +64,7 @@ class ViewPlane
       void SetHeight(int value);
 
       //! Gets the size of each pixel in the viewing plane.
-      int GetSize();
+      int GetSize() const;
 
       //! Sets the size of each pixel in the viewing plane.
       /*! \param value The new size of each pixel.
