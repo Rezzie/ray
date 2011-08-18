@@ -26,29 +26,64 @@
 
 Sphere::Sphere()
    : c(vec3f(0.0)),
-     r(1.0)
+     r(1.0),
+     r2(1.0)
 {
 }
 
 
 Sphere::Sphere(const Sphere &sphere)
    : c(sphere.c),
-     r(sphere.r)
+     r(sphere.r),
+     r2(sphere.r * sphere.r)
 {
 }
 
 
 Sphere::Sphere(const vec3f &centre, double radius)
    : c(centre),
-     r(radius)
+     r(radius),
+     r2(radius * radius)
 {
 }
 
 
 Sphere::Sphere(double x, double y, double z, double radius)
    : c(vec3f(x, y, z)),
-     r(radius)
+     r(radius),
+     r2(radius * radius)
 {
+}
+
+
+vec3f& Sphere::GetCentre()
+{
+   return c;
+}
+
+
+void Sphere::SetCentre(vec3f &value)
+{
+   c = value;
+}
+
+
+double Sphere::GetRadius()
+{
+   return r;
+}
+
+
+double Sphere::GetRadiusSq()
+{
+   return r2;
+}
+
+
+void Sphere::SetRadius(double value)
+{
+   r = value;
+   r2 = value * value;
 }
 
 

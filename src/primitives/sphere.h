@@ -57,15 +57,32 @@ class Sphere : public Primitive
        */
       Sphere(double x, double y, double z, double radius);
 
+      //! Gets the sphere's centre.
+      vec3f& GetCentre();
+
+      //! Sets the sphere's centre.
+      /*! \param value The new centre of the sphere.
+       */
+      void SetCentre(vec3f &value);
+
+      //! Gets the sphere's radius.
+      double GetRadius();
+
+      //! Gets the square of the sphere's radius.
+      double GetRadiusSq();
+
+      //! Sets the sphere's radius.
+      /*! \param value The new radius of the sphere.
+       */
+      void SetRadius(double value);
+
       virtual bool Intersect(Ray &ray, double &dist) const;
 
    private:
 
-      //! The sphere's centre.
-      vec3f c;
-
-      //! The sphere's radius.
-      double r;
+      vec3f  c;  /*! The sphere's centre. */
+      double r;  /*! The sphere's radius. */
+      double r2; /*! The square of the sphere's radius. */
 
 };
 

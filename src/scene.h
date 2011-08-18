@@ -19,22 +19,37 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "main.h"
+#ifndef _INCLUDED_8E4E9230B9F644FC
+#define _INCLUDED_8E4E9230B9F644FC
 
-#include "scene.h"
+#include "common.h"
+
+#include "primitives/sphere.h"
+#include "viewplane.h"
 
 
-int main(int argc, char *argv[])
+class Scene
 {
 
-   // Make a scene :)
-   Scene s;
-   s.Build();
+  public:
 
-   // Render it
-   s.Render();
+   //! Instantiates a default scene.
+   Scene();
 
-   // All done!
-   return EXIT_SUCCESS;
+   //! Constructs a scene.
+   void Build();
 
-}
+   //! Renders a scene.
+   void Render() const;
+
+  private:
+
+   ViewPlane vp;
+
+   Colour background;
+
+   Sphere sphere;
+
+};
+
+#endif // _INCLUDED_8E4E9230B9F644FC

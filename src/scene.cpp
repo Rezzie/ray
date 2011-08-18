@@ -19,22 +19,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "main.h"
-
 #include "scene.h"
 
 
-int main(int argc, char *argv[])
+Scene::Scene()
 {
+   ;
+}
 
-   // Make a scene :)
-   Scene s;
-   s.Build();
 
-   // Render it
-   s.Render();
+void Scene::Build()
+{
+   ;
+}
 
-   // All done!
-   return EXIT_SUCCESS;
 
+void Scene::Render() const
+{
+   ;
 }
