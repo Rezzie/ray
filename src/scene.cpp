@@ -23,6 +23,8 @@
 
 #include "renderers/ppm.h"
 
+#include <fstream>
+
 
 Scene::Scene()
 {
@@ -48,7 +50,7 @@ void Scene::Render() const
    double z = 100.0;
 
    // Create a render target to match the scene's viewing plane resolution.
-   PPM img(vp.GetWidth(), vp.GetHeight(), "render.ppm");
+   PPM img(vp.GetWidth(), vp.GetHeight());
 
    // Create a ray to trace through the scene
    Ray ray(vec3f(0.0), vec3f(0.0, 0.0, -1.0));
@@ -68,7 +70,14 @@ void Scene::Render() const
          img.SetPixel(x, y, colour);
       }
 
-   // Save the output
-   img.Save();
+   // Attempt to open the output file
+   std::ofstream out("render.ppm", std::ios::out | std::ios::trunc);
+
+   // Save the render
+   bool success = img.Save(out);
+   if (success)
+      std::cout << "Render saved to 'render.ppm'" << std::endl;
+   else
+      std::cout << "Failed to save render to 'render.ppm'" << std::endl;
 
 }

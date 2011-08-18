@@ -24,6 +24,7 @@
 
 #include "../common.h"
 
+#include <iostream>
 #include <string>
 
 
@@ -54,13 +55,14 @@ class RenderTarget
        */
       void SetPixel(int x, int y, Colour colour);
 
-      //! Outputs the render target to an image.
-      /*! \retval true If the image is saved successfully.
+      //! Outputs the rendered image to the given stream.
+      /*! \param os The output stream to write the file to.
+       *  \retval true If the image is saved successfully.
        *  \retval false If the image wasn't saved successfully.
        */
-      virtual bool Save() = 0;
+      virtual bool Save(std::ostream &os) = 0;
 
-   private:
+   protected:
 
       int _width; /*! The width of the render target. */
       int _height; /*! The height of the render target. */

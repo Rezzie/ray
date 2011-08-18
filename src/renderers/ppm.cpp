@@ -23,8 +23,6 @@
 
 #include "rendertarget.h"
 
-#include <stdexcept>
-
 
 PPM::PPM(int width, int height)
    : RenderTarget(width, height)
@@ -39,37 +37,43 @@ PPM::PPM(int width, int height, std::string filename)
 }
 
 
-std::string PPM::GetFilename() const
+string PPM::GetFilename() const
 {
    return _filename;
 }
 
 
-void PPM::SetFilename(std::string value)
+void PPM::SetFilename(string value)
 {
    _filename = value;
 }
 
 
-bool PPM::Save()
+bool PPM::Save(ostream &os)
 {
-   // FILE *output = fopen(file.c_str(), "w");
+   try
+   {
+      // Write the PPM header
+      os << "P3" << endl;
+      os << _width << " " << _height << endl;
+      os << "255" << endl;
 
-   // fprintf(output, "P3\n");
-   // fprintf(output, "%d %d\n", _width, _height);
-   // fprintf(output, "255\n");
+      // Write the pixels
+      for (int y = 0; y < _height; y++)
+      {
+         for (int x = 0; x < _width; x++)
+         {
+            Colour pixel = GetPixel(x, y);
+            os << pixel.r() << " " << pixel.g() << " " << pixel.b() << " ";
+         }
+         os << endl;
+      }
 
-   // for (int y = 0; y < _height; y++)
-   // {
-   //    for (int x = 0; x < _width; x++)
-   //    {
-   //       Colour pixel = this->GetPixel(x, y);
-   //       fprintf(output, "%3d %3d %3d ", pixel.r(), pixel.g(), pixel.b());
-   //    }
-   //    fprintf(output, "\n");
-   // }
-
-   // fclose(output);
-   return true;
+      return true;
+   }
+   catch (std::exception e)
+   {
+      return false;
+   }
 
 }

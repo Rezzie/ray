@@ -26,7 +26,10 @@
 
 #include "rendertarget.h"
 
+#include <iostream>
 #include <string>
+
+using namespace std;
 
 
 class PPM : public RenderTarget
@@ -48,17 +51,17 @@ class PPM : public RenderTarget
       PPM(int width, int height, std::string filename);
 
       //! Gets the file that the PPM will be written to.
-      std::string GetFilename() const;
+      string GetFilename() const;
 
       //! Sets the file that the PPM will be written to.
-      void SetFilename(std::string value);
+      void SetFilename(string value);
 
-      bool Save();
+      bool Save(ostream &os);
 
    private:
 
       //! The file to output the PPM to.
-      std::string _filename;
+      string _filename;
 
 };
 
