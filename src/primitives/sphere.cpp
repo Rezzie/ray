@@ -87,13 +87,13 @@ void Sphere::SetRadius(double value)
 }
 
 
-bool Sphere::Intersect(Ray &ray, double &dist) const
+bool Sphere::Intersect(const Ray &ray, double &dist) const
 {
 
    vec3f  o2c  = ray.Origin - c;
    double a    = ray.Direction.dot(ray.Direction);
    double b    = 2.0 * o2c.dot(ray.Direction);
-   double c    = (o2c.dot(o2c)) - (r * r);
+   double c    = o2c.dot(o2c) - r2;
    double disc = (b * b) - 4.0 * a * c;
 
    if (disc < 0.0)

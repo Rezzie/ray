@@ -70,7 +70,7 @@ void Plane::SetPoint(vec3f &value)
 }
 
 
-bool Plane::Intersect(Ray &ray, double &dist) const
+bool Plane::Intersect(const Ray &ray, double &dist) const
 {
 
    double t = (a - ray.Origin).dot(n) / ray.Direction.dot(n);

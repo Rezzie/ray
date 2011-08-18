@@ -19,46 +19,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ppm.h"
+#include "singlesphere.h"
 
-#include "rendertarget.h"
-
-using namespace std;
+#include "../scene.h"
 
 
-PPM::PPM(int width, int height)
-   : RenderTarget(width, height)
+SingleSphere::SingleSphere()
+   : Tracer()
 {
 }
 
 
-bool PPM::Save(ostream &os)
+SingleSphere::SingleSphere(Scene *scene)
+   : Tracer(scene)
 {
-   try
-   {
-      // Write the PPM header
-      os << "P3" << endl;
-      os << _width << " " << _height << endl;
-      os << "1" << endl;
+}
 
-      // Write the pixels
-      for (int y = 0; y < _height; y++)
-      {
-         for (int x = 0; x < _width; x++)
-         {
-            Colour pixel = GetPixel(x, y);
-            int r = (int) pixel.r() * 255;
-            int g = (int) pixel.g() * 255;
-            int b = (int) pixel.b() * 255;
-            os << r << " " << g << " " << b << " ";
-         }
-         os << endl;
-      }
 
-      return true;
-   }
-   catch (std::exception e)
-   {
-      return false;
-   }
+Colour SingleSphere::Trace(const Ray &ray) const
+{
+   double dist; // Unusued
+
+   // If the ray intersects the sphere, colour it red
+   if (s->sphere.Intersect(ray, dist))
+      return Colour(1.0, 0.0, 0.0);
+
+   // Default to just black
+   return Colour(0.0);
 }

@@ -33,9 +33,8 @@ Tracer::Tracer(Scene *scene)
 {
 }
 
-
 Colour Tracer::Trace(const Ray &ray) const
 {
    // Default to just black
-   return vec3f(0.0);
+   return Colour(1.0);
 }

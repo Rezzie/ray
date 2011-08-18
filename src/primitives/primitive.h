@@ -37,7 +37,7 @@ class Primitive
       /*! \param ray The ray to check for an intersection with.
        *  \param dist The distance to the closest intersection point, if one occurs.
        */
-      virtual bool Intersect(Ray &ray, double &dist) const = 0;
+      virtual bool Intersect(const Ray &ray, double &dist) const = 0;
 
 };
 

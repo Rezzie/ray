@@ -19,46 +19,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ppm.h"
+#ifndef _INCLUDED_4E1D6C0DBB9C4562
+#define _INCLUDED_4E1D6C0DBB9C4562
 
-#include "rendertarget.h"
+#include "../common.h"
 
-using namespace std;
+#include "tracer.h"
+
+// // Forward declarations
+class Ray;
+class Scene;
 
 
-PPM::PPM(int width, int height)
-   : RenderTarget(width, height)
+class SingleSphere : public Tracer
 {
-}
 
+  public:
 
-bool PPM::Save(ostream &os)
-{
-   try
-   {
-      // Write the PPM header
-      os << "P3" << endl;
-      os << _width << " " << _height << endl;
-      os << "1" << endl;
+   //! Instantiates a default tracer.
+   SingleSphere();
 
-      // Write the pixels
-      for (int y = 0; y < _height; y++)
-      {
-         for (int x = 0; x < _width; x++)
-         {
-            Colour pixel = GetPixel(x, y);
-            int r = (int) pixel.r() * 255;
-            int g = (int) pixel.g() * 255;
-            int b = (int) pixel.b() * 255;
-            os << r << " " << g << " " << b << " ";
-         }
-         os << endl;
-      }
+   //! Instantiates a new tracer.
+   /*! \param scene The scene to trace.
+    */
+   SingleSphere(Scene *scene);
 
-      return true;
-   }
-   catch (std::exception e)
-   {
-      return false;
-   }
-}
+   //! Traces a ray, returning its colour.
+   /*! \param ray The ray to trace.
+    */
+   virtual Colour Trace(const Ray &ray) const;
+
+};
+
+#endif // _INCLUDED_4E1D6C0DBB9C4562

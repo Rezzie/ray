@@ -22,6 +22,7 @@
 #include "scene.h"
 
 #include "renderers/ppm.h"
+#include "tracers/singlesphere.h"
 
 #include <fstream>
 
@@ -34,13 +35,15 @@ Scene::Scene()
 void Scene::Build()
 {
    // Initialise a default view plane
-   vp = ViewPlane();
+   vp = ViewPlane(640, 480);
 
    // Default to a black background
    background = vec3f(0.0);
 
    // Default sphere at origin
    sphere = Sphere(vec3f(0.0), 85.0);
+
+   tracer = new SingleSphere(this);
 }
 
 

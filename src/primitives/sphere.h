@@ -76,7 +76,7 @@ class Sphere : public Primitive
        */
       void SetRadius(double value);
 
-      virtual bool Intersect(Ray &ray, double &dist) const;
+      virtual bool Intersect(const Ray &ray, double &dist) const;
 
    private:
 

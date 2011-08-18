@@ -40,6 +40,7 @@ SET (SRCS src/main.cpp
           src/primitives/sphere.cpp
           src/renderers/rendertarget.cpp
           src/renderers/ppm.cpp
+          src/tracers/singlesphere.cpp
           src/tracers/tracer.cpp)
 
 

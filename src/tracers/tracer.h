@@ -45,9 +45,9 @@ class Tracer
    //! Traces a ray, returning its colour.
    /*! \param ray The ray to trace.
     */
-   Colour Trace(const Ray &ray) const;
+   virtual Colour Trace(const Ray &ray) const;
 
-  private:
+  protected:
 
    //! The scene to trace.
    Scene *s;

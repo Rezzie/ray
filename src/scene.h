@@ -25,8 +25,10 @@
 #include "common.h"
 
 #include "primitives/sphere.h"
-#include "tracers/tracer.h"
 #include "viewplane.h"
+
+// Forward declarations
+class Tracer;
 
 
 class Scene
@@ -43,6 +45,9 @@ class Scene
    //! Renders a scene.
    void Render() const;
 
+   // Temporarily hardcoding this.
+   Sphere sphere;
+
   private:
 
    //! The scene's viewing plane.
@@ -53,8 +58,6 @@ class Scene
 
    //! The ray tracer used for rendering.
    Tracer *tracer;
-
-   Sphere sphere;
 
 };
 

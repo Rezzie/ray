@@ -65,7 +65,7 @@ class Plane : public Primitive
        */
       void SetPoint(vec3f &value);
 
-      virtual bool Intersect(Ray &ray, double &dist) const;
+      virtual bool Intersect(const Ray &ray, double &dist) const;
 
    protected:
 
