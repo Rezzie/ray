@@ -35,7 +35,7 @@ Scene::Scene()
 void Scene::Build()
 {
    // Initialise a default view plane
-   vp = ViewPlane(640, 480);
+   vp = ViewPlane();
 
    // Default to a black background
    background = vec3f(0.0);

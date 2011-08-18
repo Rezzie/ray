@@ -45,6 +45,7 @@ static const double EPSILON = std::numeric_limits<double>::epsilon();
 
 //---[ Type Definitions ]-------------------------------------------------------
 
+typedef vec3d vec;
 typedef vec3f Colour;
 
 
