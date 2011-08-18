@@ -49,21 +49,21 @@ class Plane : public Primitive
        */
       Plane(const vec3f &point, const vec3f &normal);
 
-      // //! Gets a normal vector to the plane.
-      // vec3f& GetNormal();
+      //! Gets a normal vector to the plane.
+      vec3f& GetNormal();
 
-      // //! Sets a normal vector to the plane.
-      // /*! \param value A normal vector to the plane.
-      //  */
-      // void SetNormal(vec3f value);
+      //! Sets a normal vector to the plane.
+      /*! \param value A normal vector to the plane.
+       */
+      void SetNormal(vec3f &value);
 
-      // //! Gets a point on the plane.
-      // vec3f& GetPoint();
+      //! Gets a point on the plane.
+      vec3f& GetPoint();
 
-      // //! Sets a point on the plane.
-      // /*! \param value A point on the plane.
-      //  */
-      // void SetPoint(vec3f value);
+      //! Sets a point on the plane.
+      /*! \param value A point on the plane.
+       */
+      void SetPoint(vec3f &value);
 
       virtual bool Intersect(Ray &ray, double &dist) const;
 

@@ -33,12 +33,6 @@ class Primitive
 
    public:
 
-      //! Instantiates a default primitive.
-      Primitive();
-
-      //! Instantiates a new primitive.
-      Primitive(const Primitive &primitive);
-
       //! Checks whether a ray intersects with the primitive.
       /*! \param ray The ray to check for an intersection with.
        *  \param dist The distance to the closest intersection point, if one occurs.

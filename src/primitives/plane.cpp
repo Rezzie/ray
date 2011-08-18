@@ -44,31 +44,31 @@ Plane::Plane(const vec3f &point, const vec3f &normal)
    n.normalize();
 }
 
-/*
-vec3f& GetNormal()
+
+vec3f& Plane::GetNormal()
 {
    return n;
 }
 
 
-void SetNormal(vec3f value)
+void Plane::SetNormal(vec3f &value)
 {
    n = value;
    n.normalize();
 }
 
 
-vec3f& GetPoint()
+vec3f& Plane::GetPoint()
 {
    return a;
 }
 
 
-void SetPoint(vec3f value)
+void Plane::SetPoint(vec3f &value)
 {
    a = value;
 }
-*/
+
 
 bool Plane::Intersect(Ray &ray, double &dist) const
 {
