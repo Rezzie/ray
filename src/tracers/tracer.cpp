@@ -19,25 +19,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "scene.h"
+#include "tracer.h"
 
 
-Scene::Scene()
+Tracer::Tracer()
+   : s(NULL)
 {
 }
 
 
-void Scene::Build()
+Tracer::Tracer(Scene *scene)
+   : s(scene)
 {
-   // Initialise a default view plane
-   vp = ViewPlane();
-
-   // Default to a black background
-   background = vec3f(0.0);
 }
 
 
-void Scene::Render() const
+Colour Tracer::Trace(const Ray &ray) const
 {
-   ;
+   // Default to just black
+   return vec3f(0.0);
 }

@@ -37,7 +37,8 @@ SET (SRCS src/main.cpp
           src/viewplane.cpp
           src/primitives/plane.cpp
           src/primitives/primitive.cpp
-          src/primitives/sphere.cpp)
+          src/primitives/sphere.cpp
+          src/tracers/tracer.cpp)
 
 
 #---[ Executable ]--------------------------------------------------------------

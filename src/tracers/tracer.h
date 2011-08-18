@@ -19,25 +19,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "scene.h"
+#ifndef _INCLUDED_F16A6E26CB52441D
+#define _INCLUDED_F16A6E26CB52441D
+
+#include "../common.h"
+
+// Forward declarations
+class Ray;
+class Scene;
 
 
-Scene::Scene()
+class Tracer
 {
-}
 
+  public:
 
-void Scene::Build()
-{
-   // Initialise a default view plane
-   vp = ViewPlane();
+   //! Instantiates a default tracer.
+   Tracer();
 
-   // Default to a black background
-   background = vec3f(0.0);
-}
+   //! Instantiates a new tracer.
+   /*! \param scene The scene to trace.
+    */
+   Tracer(Scene *scene);
 
+   //! Traces a ray, returning its colour.
+   /*! \param ray The ray to trace.
+    */
+   Colour Trace(const Ray &ray) const;
 
-void Scene::Render() const
-{
-   ;
-}
+  private:
+
+   //! The scene to trace.
+   Scene *s;
+
+};
+
+#endif // _INCLUDED_F16A6E26CB52441D

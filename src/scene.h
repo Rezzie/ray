@@ -25,6 +25,7 @@
 #include "common.h"
 
 #include "primitives/sphere.h"
+#include "tracers/tracer.h"
 #include "viewplane.h"
 
 
@@ -44,9 +45,14 @@ class Scene
 
   private:
 
+   //! The scene's viewing plane.
    ViewPlane vp;
 
+   //! The scene's background colour, when a ray misses all primitives.
    Colour background;
+
+   //! The ray tracer used for rendering.
+   Tracer *tracer;
 
    Sphere sphere;
 
