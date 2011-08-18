@@ -22,15 +22,10 @@
 #ifndef _INCLUDED_62FAB5E09A7D41FF
 #define _INCLUDED_62FAB5E09A7D41FF
 
+#include "common.h"
+
 #include <string>
 
-
-struct Colour
-{
-   int R;
-   int G;
-   int B;
-};
 
 enum ImageFormat
 {

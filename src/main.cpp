@@ -21,22 +21,10 @@
 
 #include "main.h"
 
-#include "camera.h"
-#include "ray.h"
-#include "rendersurface.h"
-#include "primitives/sphere.h"
-
-#include <vmmlib/vector.hpp>
-
-//#include <cstdio>
-//#include <cstdlib>
-//#include <limits>
-
-using namespace vmml;
-
 
 int main(int argc, char *argv[])
 {
+   /*
    Camera cam;
    struct
    {
@@ -109,6 +97,7 @@ int main(int argc, char *argv[])
 
    // Save the image
    surface.Save("render.ppm", PPM);
+   */
 
    // All done!
    return EXIT_SUCCESS;

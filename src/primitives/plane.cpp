@@ -19,68 +19,71 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "sphere.h"
-
-#include "../ray.h"
+#include "plane.h"
 
 
-Sphere::Sphere()
-   : c(vec3f(0.0)),
-     r(1.0)
+Plane::Plane()
+   : a(vec3f(0.0)),
+     n(vec3f(0.0, 1.0, 0.0))
+{
+   // Ensure the normal is normalised.
+   _normal.normalize();
+}
+
+
+Plane::Plane(const Plane &plane)
+   : a(plane.a),
+     n(plane.n)
 {
 }
 
 
-Sphere::Sphere(const Sphere &sphere)
-   : c(sphere.c),
-     r(sphere.r)
+Plane::Plane(const vec3f point, const vec3f normal)
+   : a(point),
+     n(normal)
 {
+   // Ensure the normal vector is normalised.
+   _normal.normalize();
+}
+
+/*
+vec3f& GetNormal()
+{
+   return n;
 }
 
 
-Sphere::Sphere(const vec3f &centre, double radius)
-   : c(centre),
-     r(radius)
+void SetNormal(vec3f value)
 {
+   n = value;
+   n.normalize();
 }
 
 
-Sphere::Sphere(double x, double y, double z, double radius)
-   : c(vec3f(x, y, z)),
-     r(radius)
+vec3f& GetPoint()
 {
+   return a;
 }
 
 
-bool Sphere::Intersect(Ray &ray, double &dist) const
+void SetPoint(vec3f value)
+{
+   a = value;
+}
+*/
+
+bool Plane::Intersect(Ray &ray, double &dist)
 {
 
-   vec3f  o2c  = ray.Origin - c;
-   double a    = ray.Direction.dot(ray.Direction);
-   double b    = 2.0 * o2c.dot(ray.Direction);
-   double c    = (o2c.dot(o2c)) - (r * r);
-   double disc = (b * b) - 4.0 * a * c;
+   double t = (a - ray.Origin) * n / (ray.Direction * n);
 
-   if (disc < 0.0)
-      return false;
-
-   double e = sqrt(disc);
-   double denom = 2.0 * a;
-
-   double t = (-b - e) / denom;
    if (t > EPSILON)
    {
       dist = t;
       return true;
    }
 
-   t = (-b + e) / denom;
-   if (t > EPSILON)
-   {
-      dist = t;
-      return true;
-   }
-
+   // The ray is parallel to the plane
    return false;
 
 }

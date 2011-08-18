@@ -22,39 +22,50 @@
 #ifndef _INCLUDED_88AFB763CCA647E8
 #define _INCLUDED_88AFB763CCA647E8
 
+#include "../common.h"
 #include "primitive.h"
 
-#include <vmmlib/vector.hpp>
-
-// // Forward declaration
+// Forward declaration
 class Ray;
 
-using namespace vmml;
 
-
+//! A sphere primitive.
 class Sphere : public Primitive
 {
+
    public:
 
-      Sphere(vec3f centre, float radius);
+      //! Instantiates a default sphere primitive.
+      Sphere();
 
-      vec3f& GetCentre();
+      //! Instantiates a new sphere primitive.
+      /*! \param sphere An existing sphere to copy from.
+       */
+      Sphere(const Sphere &sphere);
 
-      float GetRadius();
+      //! Instantiates a new sphere primitive.
+      /*! \param centre The sphere's centre.
+       *  \param radius The sphere's radius.
+       */
+      Sphere(const vec3f &centre, double radius);
 
-      float GetRadiusSq();
+      //! Instantiates a new sphere primitive.
+      /*! \param x The X-ordinate of the sphere's centre.
+       *  \param y The Y-ordinate of the sphere's centre.
+       *  \param z The Z-ordinate of the sphere's centre.
+       *  \param radius The sphere's radius.
+       */
+      Sphere(double x, double y, double z, double radius);
 
-      bool Intersect(Ray &ray, float &dist);
-
-      void SetCentre(vec3f value);
-
-      void SetRadius(float value);
+      virtual bool Intersect(Ray &ray, double &dist) const;
 
    private:
 
-      vec3f _centre;
+      //! The sphere's centre.
+      vec3f c;
 
-      float _radius;
+      //! The sphere's radius.
+      double r;
 
 };
 

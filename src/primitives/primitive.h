@@ -22,7 +22,7 @@
 #ifndef _INCLUDED_6AADDAD8406C40EA
 #define _INCLUDED_6AADDAD8406C40EA
 
-#include "../rendersurface.h"
+#include "../common.h"
 
 // Forward declarations
 class Ray;
@@ -34,18 +34,17 @@ class Primitive
 
    public:
 
+      //! Instantiates a default primitive.
       Primitive();
-      Primitive(Colour colour);
 
-      Colour GetColour();
+      //! Instantiates a new primitive.
+      Primitive(const Primitive &primitive);
 
-      virtual bool Intersect(Ray &ray, float &dist) = 0;
-
-      void SetColour(Colour value);
-
-   protected:
-
-      Colour _colour;
+      //! Checks whether a ray intersects with the primitive.
+      /*! \param ray The ray to check for an intersection with.
+       *  \param dist The distance to the closest intersection point, if one occurs.
+       */
+      virtual bool Intersect(Ray &ray, double &dist) const = 0;
 
 };
 

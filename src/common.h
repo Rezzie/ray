@@ -19,11 +19,33 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_5FDA3CB63DFE4034
-#define _INCLUDED_5FDA3CB63DFE4034
-
-#include "common.h"
+#ifndef _INCLUDED_F349F6A9146249CF
+#define _INCLUDED_F349F6A9146249CF
 
 
+//---[ Third-party Includes ]---------------------------------------------------
 
-#endif // _INCLUDED_5FDA3CB63DFE4034
+#include <vmmlib/vector.hpp>
+
+
+//---[ Standard Library Includes ]----------------------------------------------
+
+#include <limits>
+
+
+//---[ Namespace Scoping ]------------------------------------------------------
+
+using namespace vmml;
+
+
+//---[ Constants ]--------------------------------------------------------------
+
+static const double EPSILON = std::numeric_limits<double>::epsilon();
+
+
+//---[ Type Definitions ]-------------------------------------------------------
+
+typedef vec3f Colour;
+
+
+#endif // _INCLUDED_F349F6A9146249CF

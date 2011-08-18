@@ -22,28 +22,22 @@
 #include "ray.h"
 
 
-Ray::Ray(vec3f origin, vec3f direction)
-   : _origin(origin), _direction(direction)
+Ray::Ray()
+   : Origin(vec3f(0.0)),
+     Direction(vec3f(0.0, 0.0, 1.0))
 {
-   return;
 }
 
-vec3f& Ray::GetDirection()
+
+Ray::Ray(const Ray &ray)
+   : Origin(ray.Origin),
+     Direction(ray.Direction)
 {
-   return _direction;
 }
 
-vec3f& Ray::GetOrigin()
-{
-   return _origin;
-}
 
-void Ray::SetDirection(vec3f& direction)
+Ray::Ray(const vec3f &origin, const vec3f &direction)
+   : Origin(origin),
+     Direction(direction)
 {
-   _direction = direction;
-}
-
-void Ray::SetOrigin(vec3f& origin)
-{
-   _origin = origin;
 }

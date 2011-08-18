@@ -68,7 +68,7 @@ void RenderSurface::ToPPM(FILE *output)
       for (int x = 0; x < _width; x++)
       {
          Colour pixel = this->GetPixel(x, y);
-         fprintf(output, "%3d %3d %3d ", pixel.R, pixel.G, pixel.B);
+         fprintf(output, "%3d %3d %3d ", pixel.r(), pixel.g(), pixel.b());
       }
       fprintf(output, "\n");
    }

@@ -22,45 +22,34 @@
 #ifndef _INCLUDED_CA06791DEB744AD8
 #define _INCLUDED_CA06791DEB744AD8
 
-#include <vmmlib/vector.hpp>
-
-using namespace vmml;
+#include "common.h"
 
 
 //! Represents a ray, fired from the camera into the scene.
 class Ray
 {
+
    public:
 
-      //! Initialises a new ray with the given origin and direction.
+      //! Instantiates a default ray.
+      Ray();
+
+      //! Instantiates a new ray.
+      /*! \param ray An existing ray to copy from.
+       */
+      Ray(const Ray &ray);
+
+      //! Instantiates a new ray.
       /*! \param origin The ray's origin.
        *  \param direction The ray's direction.
        */
-      Ray(vec3f origin, vec3f direction);
-
-      //! Gets the ray's direction.
-      vec3f& GetDirection();
-
-      //! Gets the ray's origin.
-      vec3f& GetOrigin();
-
-      //! Sets the ray's direction.
-      /*! \param direction The new direction. This must be normalised.
-       */
-      void SetDirection(vec3f& direction);
-
-      //! Sets the ray's origin.
-      /*! \param origin The new origin.
-       */
-      void SetOrigin(vec3f& origin);
-
-   private:
+      Ray(const vec3f &origin, const vec3f &direction);
 
       //! The ray's origin.
-      vec3f _origin;
+      vec3f Origin;
 
-      //! The ray's direction.
-      vec3f _direction;
+      //! The ray's direction. This should always be normalised.
+      vec3f Direction;
 
 };
 

@@ -21,24 +21,11 @@
 
 #include "primitive.h"
 
+
 Primitive::Primitive()
 {
-   _colour.R = 0;
-   _colour.G = 0;
-   _colour.B = 0;
 }
 
-Primitive::Primitive(Colour colour)
-   : _colour(colour)
+Primitive::Primitive(const Primitive &primitive)
 {
-}
-
-Colour Primitive::GetColour()
-{
-   return _colour;
-}
-
-void Primitive::SetColour(Colour value)
-{
-   _colour = value;
 }
