@@ -23,29 +23,12 @@
 
 #include "rendertarget.h"
 
+using namespace std;
+
 
 PPM::PPM(int width, int height)
    : RenderTarget(width, height)
 {
-}
-
-
-PPM::PPM(int width, int height, std::string filename)
-   : RenderTarget(width, height),
-     _filename(filename)
-{
-}
-
-
-string PPM::GetFilename() const
-{
-   return _filename;
-}
-
-
-void PPM::SetFilename(string value)
-{
-   _filename = value;
 }
 
 
