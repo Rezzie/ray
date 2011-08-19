@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_6AADDAD8406C40EA
-#define _INCLUDED_6AADDAD8406C40EA
+#ifndef RAY_PRIMITIVES_PRIMITIVE_H_
+#define RAY_PRIMITIVES_PRIMITIVE_H_
 
 #include "common.h"
 #include "ray.h"
@@ -40,4 +40,4 @@ class Primitive
 
 };
 
-#endif // _INCLUDED_6AADDAD8406C40EA
+#endif // RAY_PRIMITIVES_PRIMITIVE_H_

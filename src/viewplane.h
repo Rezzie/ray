@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_4898E54B7A394090
-#define _INCLUDED_4898E54B7A394090
+#ifndef RAY_VIEWPLANE_H_
+#define RAY_VIEWPLANE_H_
 
 #include "common.h"
 
@@ -82,4 +82,4 @@ class ViewPlane
 
 };
 
-#endif // _INCLUDED_4898E54B7A394090
+#endif // RAY_VIEWPLANE_H_

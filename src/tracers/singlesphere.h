@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_4E1D6C0DBB9C4562
-#define _INCLUDED_4E1D6C0DBB9C4562
+#ifndef RAY_TRACERS_SINGLESPHERE_H_
+#define RAY_TRACERS_SINGLESPHERE_H_
 
 #include "common.h"
 #include "tracers/tracer.h"
@@ -49,4 +49,4 @@ class SingleSphere : public Tracer
 
 };
 
-#endif // _INCLUDED_4E1D6C0DBB9C4562
+#endif // RAY_TRACERS_SINGLESPHERE_H_

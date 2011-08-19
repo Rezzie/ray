@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_F16A6E26CB52441D
-#define _INCLUDED_F16A6E26CB52441D
+#ifndef RAY_TRACERS_TRACER_H_
+#define RAY_TRACERS_TRACER_H_
 
 #include "common.h"
 
@@ -54,4 +54,4 @@ class Tracer
 
 };
 
-#endif // _INCLUDED_F16A6E26CB52441D
+#endif // RAY_TRACERS_TRACER_H_

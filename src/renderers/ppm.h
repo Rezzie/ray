@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_7770A54E803F4920
-#define _INCLUDED_7770A54E803F4920
+#ifndef RAY_RENDERERS_PPM_H_
+#define RAY_RENDERERS_PPM_H_
 
 #include <iostream>
 
@@ -50,4 +50,4 @@ class PPM : public RenderTarget
 
 };
 
-#endif // _INCLUDED_7770A54E803F4920
+#endif // RAY_RENDERERS_PPM_H_

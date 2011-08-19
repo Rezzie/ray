@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_CA06791DEB744AD8
-#define _INCLUDED_CA06791DEB744AD8
+#ifndef RAY_RAY_H_
+#define RAY_RAY_H_
 
 #include "common.h"
 
@@ -53,4 +53,4 @@ class Ray
 
 };
 
-#endif // _INCLUDED_CA06791DEB744AD8
+#endif // RAY_RAY_H_

@@ -76,12 +76,6 @@ void Scene::Render() const
 
    // Attempt to open the output file
    std::ofstream out("render.ppm", std::ios::out | std::ios::trunc);
-
-   // Save the render
-   bool success = img.Save(out);
-   if (success)
-      std::cout << "Render saved to 'render.ppm'" << std::endl;
-   else
-      std::cout << "Failed to save render to 'render.ppm'" << std::endl;
+   img.Save(out);
 
 }

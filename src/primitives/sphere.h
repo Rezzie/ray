@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_88AFB763CCA647E8
-#define _INCLUDED_88AFB763CCA647E8
+#ifndef RAY_PRIMITIVES_SPHERE_H_
+#define RAY_PRIMITIVES_SPHERE_H_
 
 #include "common.h"
 #include "primitives/primitive.h"
@@ -83,4 +83,4 @@ class Sphere : public Primitive
 
 };
 
-#endif // _INCLUDED_88AFB763CCA647E8
+#endif // RAY_PRIMITIVES_SPHERE_H_

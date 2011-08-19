@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_A644FC0CD69E4D96
-#define _INCLUDED_A644FC0CD69E4D96
+#ifndef RAY_PRIMITIVES_PLANE_H_
+#define RAY_PRIMITIVES_PLANE_H_
 
 #include "common.h"
 #include "primitives/primitive.h"
@@ -74,4 +74,4 @@ class Plane : public Primitive
 
 };
 
-#endif // _INCLUDED_A644FC0CD69E4D96
+#endif // RAY_PRIMITIVES_PLANE_H_

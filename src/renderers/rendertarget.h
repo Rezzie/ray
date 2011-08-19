@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_62FAB5E09A7D41FF
-#define _INCLUDED_62FAB5E09A7D41FF
+#ifndef RAY_RENDERERS_RENDERTARGET_H_
+#define RAY_RENDERERS_RENDERTARGET_H_
 
 #include <iostream>
 #include <string>
@@ -72,4 +72,4 @@ class RenderTarget
 
 };
 
-#endif // _INCLUDED_62FAB5E09A7D41FF
+#endif // RAY_RENDERERS_RENDERTARGET_H_

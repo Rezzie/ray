@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_F349F6A9146249CF
-#define _INCLUDED_F349F6A9146249CF
+#ifndef RAY_COMMON_H_
+#define RAY_COMMON_H_
 
 
 //---[ Third-party Includes ]---------------------------------------------------
@@ -39,4 +39,4 @@ typedef vmml::vec3d vec;
 typedef vmml::vec3f Colour;
 
 
-#endif // _INCLUDED_F349F6A9146249CF
+#endif // RAY_COMMON_H_

@@ -19,11 +19,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_5FDA3CB63DFE4034
-#define _INCLUDED_5FDA3CB63DFE4034
+#ifndef RAY_MAIN_H_
+#define RAY_MAIN_H_
 
 #include "common.h"
 
 
 
-#endif // _INCLUDED_5FDA3CB63DFE4034
+#endif // RAY_MAIN_H_

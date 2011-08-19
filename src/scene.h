@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef _INCLUDED_8E4E9230B9F644FC
-#define _INCLUDED_8E4E9230B9F644FC
+#ifndef RAY_SCENE_H_
+#define RAY_SCENE_H_
 
 #include "common.h"
 
@@ -61,4 +61,4 @@ class Scene
 
 };
 
-#endif // _INCLUDED_8E4E9230B9F644FC
+#endif // RAY_SCENE_H_
