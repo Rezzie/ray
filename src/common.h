@@ -22,7 +22,6 @@
 #ifndef RAY_COMMON_H_
 #define RAY_COMMON_H_
 
-
 #include <vmmlib/vector.hpp>
 
 

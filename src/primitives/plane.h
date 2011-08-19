@@ -43,13 +43,13 @@ class Plane : public Primitive
       Plane(const Vector3 &point, const Vector3 &normal);
 
       //! Gets a normal vector to the plane.
-      Vector3& get_normal();
+      Vector3& normal();
 
       //! Sets the normal vector to the plane.
       void set_normal(Vector3 &value);
 
       //! Gets a point on the plane.
-      Vector3& get_point();
+      Vector3& point();
 
       //! Sets a point on the plane.
       void set_point(Vector3 &value);

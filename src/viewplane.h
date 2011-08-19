@@ -41,19 +41,19 @@ class ViewPlane
       ViewPlane(int width, int height, double size);
 
       //! Gets the horizontal resolution of the viewing plane.
-      int get_hres() const;
+      int hres() const;
 
       //! Sets the horizontal resolution of the viewing plane.
       void set_hres(int value);
 
       //! Gets the vertical resolution of the viewing plane.
-      int get_vres() const;
+      int vres() const;
 
       //! Sets the vertical resolution of the viewing plane.
       void set_vres(int value);
 
       //! Gets the size of each pixel in the viewing plane.
-      double get_size() const;
+      double size() const;
 
       //! Sets the size of each pixel in the viewing plane.
       void set_size(double value);

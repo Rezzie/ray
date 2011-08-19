@@ -46,16 +46,16 @@ class Sphere : public Primitive
       Sphere(double x, double y, double z, double radius);
 
       //! Gets the centre point of the sphere.
-      Vector3& get_centre();
+      Vector3& centre();
 
       //! Sets the centre point of the sphere.
       void set_centre(Vector3 &value);
 
       //! Gets the radius of the sphere.
-      double get_radius() const;
+      double radius() const;
 
       //! Gets the square of the radius of the sphere.
-      double get_radius_squared() const;
+      double radius_squared() const;
 
       //! Sets the radius of the sphere.
       void set_radius(double value);

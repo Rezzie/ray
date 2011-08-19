@@ -46,7 +46,7 @@ ViewPlane::ViewPlane(int width, int height, double size)
 }
 
 
-int ViewPlane::get_hres() const
+int ViewPlane::hres() const
 {
    return hres_;
 }
@@ -58,7 +58,7 @@ void ViewPlane::set_hres(int value)
 }
 
 
-int ViewPlane::get_vres() const
+int ViewPlane::vres() const
 {
    return vres_;
 }
@@ -70,7 +70,7 @@ void ViewPlane::set_vres(int value)
 }
 
 
-double ViewPlane::get_size() const
+double ViewPlane::size() const
 {
    return size_;
 }

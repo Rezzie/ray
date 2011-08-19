@@ -45,7 +45,7 @@ Plane::Plane(const Vector3 &point, const Vector3 &normal)
 }
 
 
-Vector3& Plane::get_normal()
+Vector3& Plane::normal()
 {
    return normal_;
 }
@@ -58,7 +58,7 @@ void Plane::set_normal(Vector3 &value)
 }
 
 
-Vector3& Plane::get_point()
+Vector3& Plane::point()
 {
    return point_;
 }
@@ -73,7 +73,7 @@ void Plane::set_point(Vector3 &value)
 bool Plane::Intersects(const Ray &ray, double &dist) const
 {
 
-   double t = (point_ - ray.Origin).dot(normal_) / ray.Direction.dot(normal_);
+   double t = (point_ - ray.origin).dot(normal_) / ray.direction.dot(normal_);
 
    if (t > kEpsilon)
    {

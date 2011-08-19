@@ -54,19 +54,20 @@ void Scene::Render() const
    double z = 100.0;
 
    // Create a render target to match the scene's viewing plane resolution.
-   PPM img(vp_.get_hres(), vp_.get_vres());
+   PPM img = PPM(vp_.hres(), vp_.vres());
 
    // Create a ray to trace through the scene
-   Ray ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
+   Ray ray = Ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
    Colour colour;
 
-   for (int y = 0; y < vp_.get_vres(); ++y)
-      for (int x = 0; x < vp_.get_hres(); ++x)
+   // Spawn and trace a ray for each pixel in the viewing plane
+   for (int y = 0; y < vp_.vres(); ++y)
+      for (int x = 0; x < vp_.hres(); ++x)
       {
          // Calculate ray's origin using orthographic projection
-         double xs = vp_.get_size() * (x - 0.5 * (vp_.get_hres() - 1.0));
-         double ys = vp_.get_size() * (y - 0.5 * (vp_.get_vres() - 1.0));
-         ray.Origin = Vector3(xs, ys, z);
+         double xs = vp_.size() * (x - 0.5 * (vp_.hres() - 1.0));
+         double ys = vp_.size() * (y - 0.5 * (vp_.vres() - 1.0));
+         ray.origin = Vector3(xs, ys, z);
 
          // Trace the ray through the scene
          colour = tracer_->Trace(ray);
@@ -76,7 +77,7 @@ void Scene::Render() const
       }
 
    // Attempt to open the output file
-   FILE *output = fopen("render.ppm","w");
+   FILE *output = fopen("render.ppm", "w");
    if (NULL != output)
    {
       img.Save(output);
