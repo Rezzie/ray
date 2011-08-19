@@ -33,18 +33,13 @@ class PPM : public RenderTarget
 
    public:
 
+      PPM();
+
       //! Instantiates a new render target of the given dimensions.
       /*! \param width The width of the render target.
        *  \param height The height of the render target.
        */
       PPM(int width, int height);
-
-      //! Instantiates a new render target of the given dimensions.
-      /*! \param width The width of the render target.
-       *  \param height The height of the render target.
-       *  \param filename The file to output the PPM to.
-       */
-      PPM(int width, int height, std::string filename);
 
       bool Save(std::ostream &os);
 

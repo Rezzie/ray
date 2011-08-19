@@ -58,6 +58,7 @@ void Scene::Render() const
 
    // Create a ray to trace through the scene
    Ray ray(vec(0.0), vec(0.0, 0.0, -1.0));
+   Colour colour;
 
    for (int y = 0; y < vp.GetHeight(); y++)
       for (int x = 0; x < vp.GetWidth(); x++)
@@ -68,14 +69,14 @@ void Scene::Render() const
          ray.Origin = vec(xs, ys, z);
 
          // Trace the ray through the scene
-         Colour colour = tracer->Trace(ray);
+         colour = tracer->Trace(ray);
 
          // Render the pixel
          img.SetPixel(x, y, colour);
       }
 
    // Attempt to open the output file
-   std::ofstream out("render.ppm", std::ios::out | std::ios::trunc);
+   std::ofstream out("render.ppm", std::ios::out | std::ios::trunc | std::ios::binary);
    img.Save(out);
 
 }

@@ -22,6 +22,12 @@
 #include "renderers/ppm.h"
 
 
+PPM::PPM()
+   : RenderTarget()
+{
+}
+
+
 PPM::PPM(int width, int height)
    : RenderTarget(width, height)
 {
@@ -33,9 +39,9 @@ bool PPM::Save(std::ostream &os)
    try
    {
       // Write the PPM header
-      os << "P3" << std::endl;
+      os << "P6" << std::endl;
       os << _width << " " << _height << std::endl;
-      os << "1" << std::endl;
+      os << "255" << std::endl;
 
       // Write the pixels
       for (int y = 0; y < _height; y++)
@@ -43,12 +49,11 @@ bool PPM::Save(std::ostream &os)
          for (int x = 0; x < _width; x++)
          {
             Colour pixel = GetPixel(x, y);
-            int r = (int) pixel.r() * 255;
-            int g = (int) pixel.g() * 255;
-            int b = (int) pixel.b() * 255;
-            os << r << " " << g << " " << b << " ";
+            char r = pixel.r() * 255;
+            char g = pixel.g() * 255;
+            char b = pixel.b() * 255;
+            os << r << g << b;
          }
-         os << std::endl;
       }
 
       return true;
