@@ -23,18 +23,18 @@
 
 
 Tracer::Tracer()
-   : s(NULL)
+   : scene_(NULL)
 {
 }
 
 
 Tracer::Tracer(Scene *scene)
-   : s(scene)
+   : scene_(scene)
 {
 }
 
 Colour Tracer::Trace(const Ray &ray) const
 {
    // Default to just black
-   return Colour(1.0);
+   return Colour(0.0);
 }

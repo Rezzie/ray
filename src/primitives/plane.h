@@ -36,7 +36,7 @@ class Plane : public Primitive
       //! Instantiates a default plane primitive.
       Plane();
 
-      //! Instantiates a new plane by copying an existing one.
+      //! Copies an existing plane.
       explicit Plane(const Plane &plane);
 
       //! Instantiates a new plane from a point and normal vector to the surface.
@@ -54,7 +54,7 @@ class Plane : public Primitive
       //! Sets a point on the plane.
       void set_point(vec &value);
 
-      virtual bool Intersect(const Ray &ray, double &dist) const;
+      virtual bool Intersects(const Ray &ray, double &dist) const;
 
    protected:
 

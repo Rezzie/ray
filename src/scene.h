@@ -51,13 +51,13 @@ class Scene
   private:
 
    //! The scene's viewing plane.
-   ViewPlane vp;
+   ViewPlane vp_;
 
-   //! The scene's background colour, when a ray misses all primitives.
-   Colour background;
+   //! The scene's background colour (for when a ray misses all primitives).
+   Colour background_;
 
    //! The ray tracer used for rendering.
-   Tracer *tracer;
+   Tracer *tracer_;
 
 };
 

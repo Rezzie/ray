@@ -36,15 +36,15 @@ Scene::Scene()
 void Scene::Build()
 {
    // Initialise a default view plane
-   vp = ViewPlane();
+   vp_ = ViewPlane();
 
    // Default to a black background
-   background = vec(0.0);
+   background_ = vec(0.0);
 
    // Default sphere at origin
    sphere = Sphere(vec(0.0), 85.0);
 
-   tracer = new SingleSphere(this);
+   tracer_ = new SingleSphere(this);
 }
 
 
@@ -54,22 +54,22 @@ void Scene::Render() const
    double z = 100.0;
 
    // Create a render target to match the scene's viewing plane resolution.
-   PPM img(vp.GetWidth(), vp.GetHeight());
+   PPM img(vp_.get_hres(), vp_.get_vres());
 
    // Create a ray to trace through the scene
    Ray ray(vec(0.0), vec(0.0, 0.0, -1.0));
    Colour colour;
 
-   for (int y = 0; y < vp.GetHeight(); y++)
-      for (int x = 0; x < vp.GetWidth(); x++)
+   for (int y = 0; y < vp_.get_vres(); y++)
+      for (int x = 0; x < vp_.get_hres(); x++)
       {
          // Calculate ray's origin using orthographic projection
-         double xs = vp.GetSize() * (x - 0.5 * (vp.GetWidth() - 1.0));
-         double ys = vp.GetSize() * (y - 0.5 * (vp.GetHeight() - 1.0));
+         double xs = vp_.get_size() * (x - 0.5 * (vp_.get_hres() - 1.0));
+         double ys = vp_.get_size() * (y - 0.5 * (vp_.get_vres() - 1.0));
          ray.Origin = vec(xs, ys, z);
 
          // Trace the ray through the scene
-         colour = tracer->Trace(ray);
+         colour = tracer_->Trace(ray);
 
          // Render the pixel
          img.set_pixel(x, y, colour);

@@ -36,7 +36,7 @@ class Sphere : public Primitive
       //! Instantiates a default sphere primitive.
       Sphere();
 
-      //! Instantiates a new sphere by copying an existing one.
+      //! Copies an existing sphere.
       explicit Sphere(const Sphere &sphere);
 
       //! Instantiates a new sphere primitive from a centre point and radius.
@@ -60,7 +60,7 @@ class Sphere : public Primitive
       //! Sets the radius of the sphere.
       void set_radius(double value);
 
-      virtual bool Intersect(const Ray &ray, double &dist) const;
+      virtual bool Intersects(const Ray &ray, double &dist) const;
 
    private:
 

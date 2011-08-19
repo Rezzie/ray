@@ -23,9 +23,7 @@
 #define RAY_PRIMITIVES_PRIMITIVE_H_
 
 #include "common.h"
-
-// Forward declarations
-class Ray;
+#include "ray.h"
 
 
 //! An abstract base class for all primitive objects.
@@ -34,11 +32,11 @@ class Primitive
 
    public:
 
-      //! Checks whether a ray intersects with the primitive.
-      /*! \param ray The ray to check for an intersection with.
+      /*! \brief Checks if a ray intersects with the primitive.
+       *  \param ray The ray to check for an intersection with.
        *  \param dist The distance to the closest intersection point, if one occurs.
        */
-      virtual bool Intersect(const Ray &ray, double &dist) const = 0;
+      virtual bool Intersects(const Ray &ray, double &dist) const = 0;
 
 };
 

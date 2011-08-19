@@ -29,56 +29,40 @@
 class ViewPlane
 {
 
-	public:
+   public:
 
-		//! Instantiates a default viewing plane.
-		ViewPlane();
+      //! Instantiates a default viewing plane.
+      ViewPlane();
 
-		//! Instantiates a new viewing plane.
-		/*! \param width The horizontal resolution of the viewing plane.
-		*  \param height The vertical resolution of the viewing plane.
-		*/
-		ViewPlane(int width, int height);
+      //! Instantiates a new viewing plane with the given resolution.
+      ViewPlane(int width, int height);
 
-		//! Instantiates a new viewing plane.
-		/*! \param width The horizontal resolution of the viewing plane.
-		*  \param height The vertical resolution of the viewing plane.
-		*  \param size The size of each pixel in the viewing plane.
-		*/
-		ViewPlane(int width, int height, double size);
+      //! Instantiates a new viewing plane with the given resolution and pixel size.
+      ViewPlane(int width, int height, double size);
 
       //! Gets the horizontal resolution of the viewing plane.
-      int GetWidth() const;
+      int get_hres() const;
 
       //! Sets the horizontal resolution of the viewing plane.
-      /*! \param value The new horizontal resolution.
-       */
-      void SetWidth(int value);
+      void set_hres(int value);
 
       //! Gets the vertical resolution of the viewing plane.
-      int GetHeight() const;
+      int get_vres() const;
 
       //! Sets the vertical resolution of the viewing plane.
-      /*! \param value The new vertical resolution.
-       */
-      void SetHeight(int value);
+      void set_vres(int value);
 
       //! Gets the size of each pixel in the viewing plane.
-      int GetSize() const;
+      double get_size() const;
 
       //! Sets the size of each pixel in the viewing plane.
-      /*! \param value The new size of each pixel.
-       */
-      void SetSize(int value);
+      void set_size(double value);
 
+   private:
 
-	private:
-
-		int w; /*! The horizontal resolution of the viewing plane. */
-		int h; /*! The vertical resolution of the viewing plane. */
-
-		//! The size of each pixel in the viewing plane.
-		double s;
+      int    hres_;  //!< The horizontal resolution of the viewing plane.
+      int    vres_;  //!< The vertical resolution of the viewing plane.
+      double size_;  //!< The size of each pixel in the viewing plane.
 
 };
 

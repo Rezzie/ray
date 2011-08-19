@@ -27,6 +27,7 @@
 #include "common.h"
 
 
+//! Provides a surface for the raytracer to render pixels to.
 class RenderTarget
 {
 
@@ -46,8 +47,8 @@ class RenderTarget
       //! Sets the colour of the pixel at the given coordinates.
       void set_pixel(int x, int y, Colour colour);
 
-      //! Saves the rendered image to the given stream.
-      /*! \param os An output stream to write the image to.
+      /*! \brief Saves the rendered image to the given stream.
+       *  \param os An output stream to write the image to.
        *  \retval true If the image is saved successfully.
        *  \retval false If the image wasn't saved successfully.
        */

@@ -23,10 +23,8 @@
 #define RAY_TRACERS_SINGLESPHERE_H_
 
 #include "common.h"
+#include "ray.h"
 #include "tracers/tracer.h"
-
-// Forward declarations
-class Ray;
 
 
 class SingleSphere : public Tracer
@@ -34,17 +32,9 @@ class SingleSphere : public Tracer
 
   public:
 
-   //! Instantiates a default tracer.
    SingleSphere();
-
-   //! Instantiates a new tracer.
-   /*! \param scene The scene to trace.
-    */
    SingleSphere(Scene *scene);
 
-   //! Traces a ray, returning its colour.
-   /*! \param ray The ray to trace.
-    */
    virtual Colour Trace(const Ray &ray) const;
 
 };

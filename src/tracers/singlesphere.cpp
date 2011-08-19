@@ -41,7 +41,7 @@ Colour SingleSphere::Trace(const Ray &ray) const
    double dist; // Unusued
 
    // If the ray intersects the sphere, colour it red
-   if (s->sphere.Intersect(ray, dist))
+   if (scene_->sphere.Intersects(ray, dist))
       return Colour(1.0, 0.0, 0.0);
 
    // Default to just black

@@ -25,8 +25,8 @@
 #include "common.h"
 
 
-//! Represents a ray, fired from the camera into the scene.
-class Ray
+//! Represents a ray with an origin and direction.
+struct Ray
 {
 
    public:
@@ -34,22 +34,14 @@ class Ray
       //! Instantiates a default ray.
       Ray();
 
-      //! Instantiates a new ray.
-      /*! \param ray An existing ray to copy from.
-       */
+      //! Copies an existing ray.
       Ray(const Ray &ray);
 
-      //! Instantiates a new ray.
-      /*! \param origin The ray's origin.
-       *  \param direction The ray's direction.
-       */
+      //! Instantiates a new ray with the given origin and direction.
       Ray(const vec &origin, const vec &direction);
 
-      //! The ray's origin.
-      vec Origin;
-
-      //! The ray's direction. This should always be normalised.
-      vec Direction;
+      vec Origin;     //!< The ray's origin.
+      vec Direction;  //!< The ray's direction. This should always be normalised.
 
 };
 

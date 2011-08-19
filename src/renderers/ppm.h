@@ -26,6 +26,7 @@
 #include "renderers/rendertarget.h"
 
 
+//! Outputs a rendered image as a (rawbits) PPM.
 class PPM : public RenderTarget
 {
 

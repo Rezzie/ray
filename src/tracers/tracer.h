@@ -23,12 +23,13 @@
 #define RAY_TRACERS_TRACER_H_
 
 #include "common.h"
+#include "ray.h"
 
 // Forward declarations
-class Ray;
 class Scene;
 
 
+//! Calculates the colour of a ray by tracing it through the scene.
 class Tracer
 {
 
@@ -37,20 +38,18 @@ class Tracer
    //! Instantiates a default tracer.
    Tracer();
 
-   //! Instantiates a new tracer.
-   /*! \param scene The scene to trace.
-    */
+   //! Instantiates a new tracer within the specified scene.
    Tracer(Scene *scene);
 
-   //! Traces a ray, returning its colour.
-   /*! \param ray The ray to trace.
+   /*! \brief Trace the given ray though the scene.
+    *  \returns The final colour of the ray.
     */
    virtual Colour Trace(const Ray &ray) const;
 
   protected:
 
    //! The scene to trace.
-   Scene *s;
+   Scene *scene_;
 
 };
 

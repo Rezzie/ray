@@ -85,7 +85,7 @@ void Sphere::set_radius(double value)
 }
 
 
-bool Sphere::Intersect(const Ray &ray, double &dist) const
+bool Sphere::Intersects(const Ray &ray, double &dist) const
 {
 
    vec origin_to_centre = ray.Origin - centre_;
