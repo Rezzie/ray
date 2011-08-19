@@ -28,7 +28,7 @@
 
 //---[ Type Definitions ]-------------------------------------------------------
 
-typedef vmml::vec3d vec;
+typedef vmml::vec3d Vector3;
 typedef vmml::vec3f Colour;
 
 

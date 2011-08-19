@@ -39,10 +39,10 @@ void Scene::Build()
    vp_ = ViewPlane();
 
    // Default to a black background
-   background_ = vec(0.0);
+   background_ = Vector3(0.0);
 
    // Default sphere at origin
-   sphere = Sphere(vec(0.0), 85.0);
+   sphere = Sphere(Vector3(0.0), 85.0);
 
    tracer_ = new SingleSphere(this);
 }
@@ -57,7 +57,7 @@ void Scene::Render() const
    PPM img(vp_.get_hres(), vp_.get_vres());
 
    // Create a ray to trace through the scene
-   Ray ray(vec(0.0), vec(0.0, 0.0, -1.0));
+   Ray ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
    Colour colour;
 
    for (int y = 0; y < vp_.get_vres(); ++y)
@@ -66,7 +66,7 @@ void Scene::Render() const
          // Calculate ray's origin using orthographic projection
          double xs = vp_.get_size() * (x - 0.5 * (vp_.get_hres() - 1.0));
          double ys = vp_.get_size() * (y - 0.5 * (vp_.get_vres() - 1.0));
-         ray.Origin = vec(xs, ys, z);
+         ray.Origin = Vector3(xs, ys, z);
 
          // Trace the ray through the scene
          colour = tracer_->Trace(ray);

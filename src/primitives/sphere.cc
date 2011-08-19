@@ -23,7 +23,7 @@
 
 
 Sphere::Sphere()
-   : centre_(vec(0.0)),
+   : centre_(Vector3(0.0)),
      radius_(1.0),
      radius2_(1.0)
 {
@@ -38,7 +38,7 @@ Sphere::Sphere(const Sphere &sphere)
 }
 
 
-Sphere::Sphere(const vec &centre, double radius)
+Sphere::Sphere(const Vector3 &centre, double radius)
    : centre_(centre),
      radius_(radius),
      radius2_(radius * radius)
@@ -47,20 +47,20 @@ Sphere::Sphere(const vec &centre, double radius)
 
 
 Sphere::Sphere(double x, double y, double z, double radius)
-   : centre_(vec(x, y, z)),
+   : centre_(Vector3(x, y, z)),
      radius_(radius),
      radius2_(radius * radius)
 {
 }
 
 
-vec& Sphere::get_centre()
+Vector3& Sphere::get_centre()
 {
    return centre_;
 }
 
 
-void Sphere::set_centre(vec &value)
+void Sphere::set_centre(Vector3 &value)
 {
    centre_ = value;
 }
@@ -88,7 +88,7 @@ void Sphere::set_radius(double value)
 bool Sphere::Intersects(const Ray &ray, double &dist) const
 {
 
-   vec origin_to_centre = ray.Origin - centre_;
+   Vector3 origin_to_centre = ray.Origin - centre_;
    double a    = ray.Direction.dot(ray.Direction);
    double b    = 2.0 * origin_to_centre.dot(ray.Direction);
    double c    = origin_to_centre.dot(origin_to_centre) - radius2_;

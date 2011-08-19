@@ -40,16 +40,16 @@ class Sphere : public Primitive
       explicit Sphere(const Sphere &sphere);
 
       //! Instantiates a new sphere primitive from a centre point and radius.
-      Sphere(const vec &centre, double radius);
+      Sphere(const Vector3 &centre, double radius);
 
       //! Instantiates a new sphere primitive from a centre point and radius.
       Sphere(double x, double y, double z, double radius);
 
       //! Gets the centre point of the sphere.
-      vec& get_centre();
+      Vector3& get_centre();
 
       //! Sets the centre point of the sphere.
-      void set_centre(vec &value);
+      void set_centre(Vector3 &value);
 
       //! Gets the radius of the sphere.
       double get_radius() const;
@@ -64,9 +64,9 @@ class Sphere : public Primitive
 
    private:
 
-      vec    centre_;   //!< The centre point of the sphere.
-      double radius_;   //!< The radius of the sphere.
-      double radius2_;  //!< The square of the radius.
+      Vector3 centre_;   //!< The centre point of the sphere.
+      double  radius_;   //!< The radius of the sphere.
+      double  radius2_;  //!< The square of the radius.
 
 };
 

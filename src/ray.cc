@@ -23,8 +23,8 @@
 
 
 Ray::Ray()
-   : Origin(vec(0.0)),
-     Direction(vec(0.0, 0.0, 1.0))
+   : Origin(Vector3(0.0)),
+     Direction(Vector3(0.0, 0.0, 1.0))
 {
 }
 
@@ -36,7 +36,7 @@ Ray::Ray(const Ray &ray)
 }
 
 
-Ray::Ray(const vec &origin, const vec &direction)
+Ray::Ray(const Vector3 &origin, const Vector3 &direction)
    : Origin(origin),
      Direction(direction)
 {

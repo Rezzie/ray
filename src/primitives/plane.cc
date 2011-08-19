@@ -23,8 +23,8 @@
 
 
 Plane::Plane()
-   : point_(vec(0.0)),
-     normal_(vec(0.0, 1.0, 0.0))
+   : point_(Vector3(0.0)),
+     normal_(Vector3(0.0, 1.0, 0.0))
 {
 }
 
@@ -36,7 +36,7 @@ Plane::Plane(const Plane &plane)
 }
 
 
-Plane::Plane(const vec &point, const vec &normal)
+Plane::Plane(const Vector3 &point, const Vector3 &normal)
    : point_(point),
      normal_(normal)
 {
@@ -45,26 +45,26 @@ Plane::Plane(const vec &point, const vec &normal)
 }
 
 
-vec& Plane::get_normal()
+Vector3& Plane::get_normal()
 {
    return normal_;
 }
 
 
-void Plane::set_normal(vec &value)
+void Plane::set_normal(Vector3 &value)
 {
    normal_ = value;
    normal_.normalize();
 }
 
 
-vec& Plane::get_point()
+Vector3& Plane::get_point()
 {
    return point_;
 }
 
 
-void Plane::set_point(vec &value)
+void Plane::set_point(Vector3 &value)
 {
    point_ = value;
 }
