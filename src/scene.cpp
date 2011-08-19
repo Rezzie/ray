@@ -60,8 +60,8 @@ void Scene::Render() const
    Ray ray(vec(0.0), vec(0.0, 0.0, -1.0));
    Colour colour;
 
-   for (int y = 0; y < vp_.get_vres(); y++)
-      for (int x = 0; x < vp_.get_hres(); x++)
+   for (int y = 0; y < vp_.get_vres(); ++y)
+      for (int x = 0; x < vp_.get_hres(); ++x)
       {
          // Calculate ray's origin using orthographic projection
          double xs = vp_.get_size() * (x - 0.5 * (vp_.get_hres() - 1.0));
@@ -77,7 +77,7 @@ void Scene::Render() const
 
    // Attempt to open the output file
    FILE *output = fopen("render.ppm","w");
-   if (output != NULL)
+   if (NULL != output)
    {
       img.Save(output);
       fclose(output);

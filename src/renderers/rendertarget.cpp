@@ -43,7 +43,7 @@ RenderTarget::~RenderTarget()
 }
 
 
-Colour RenderTarget::get_pixel(int x, int y)
+Colour RenderTarget::get_pixel(int x, int y) const
 {
    assert(x < width_ && y < height_);
    return data_[x + y * width_];

@@ -42,7 +42,7 @@ class RenderTarget
       ~RenderTarget();
 
       //! Gets the colour of the pixel at the given coordinates.
-      Colour get_pixel(int x, int y);
+      Colour get_pixel(int x, int y) const;
 
       //! Sets the colour of the pixel at the given coordinates.
       void set_pixel(int x, int y, Colour colour);
@@ -52,7 +52,7 @@ class RenderTarget
        *  \retval true If the image is saved successfully.
        *  \retval false If the image wasn't saved successfully.
        */
-      virtual void Save(FILE *output) = 0;
+      virtual void Save(FILE *output) const = 0;
 
    protected:
 

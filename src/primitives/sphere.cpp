@@ -66,13 +66,13 @@ void Sphere::set_centre(vec &value)
 }
 
 
-double Sphere::get_radius()
+double Sphere::get_radius() const
 {
    return radius_;
 }
 
 
-double Sphere::get_radius_squared()
+double Sphere::get_radius_squared() const
 {
    return radius2_;
 }

@@ -52,10 +52,10 @@ class Sphere : public Primitive
       void set_centre(vec &value);
 
       //! Gets the radius of the sphere.
-      double get_radius();
+      double get_radius() const;
 
       //! Gets the square of the radius of the sphere.
-      double get_radius_squared();
+      double get_radius_squared() const;
 
       //! Sets the radius of the sphere.
       void set_radius(double value);

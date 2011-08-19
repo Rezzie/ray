@@ -21,6 +21,8 @@
 
 #include "renderers/ppm.h"
 
+#include <stdint.h>
+
 
 PPM::PPM()
    : RenderTarget()
@@ -34,7 +36,7 @@ PPM::PPM(int width, int height)
 }
 
 
-void PPM::Save(FILE *output)
+void PPM::Save(FILE *output) const
 {
    // Write the PPM header
    fprintf(output, "P6\n");
@@ -43,12 +45,12 @@ void PPM::Save(FILE *output)
 
    // Write the pixel data
    Colour pixel;
-   for (int y = 0; y < height_; y++)
-      for (int x = 0; x < width_; x++)
+   for (int y = 0; y < height_; ++y)
+      for (int x = 0; x < width_; ++x)
       {
          pixel = get_pixel(x, y) * 255;
-         fprintf(output, "%c%c%c", static_cast<char>(pixel.r()),
-                                   static_cast<char>(pixel.g()),
-                                   static_cast<char>(pixel.b()));
+         fprintf(output, "%c%c%c", static_cast<uint8_t>(pixel.r()),
+                                   static_cast<uint8_t>(pixel.g()),
+                                   static_cast<uint8_t>(pixel.b()));
       }
 }
