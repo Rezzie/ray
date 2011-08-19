@@ -38,7 +38,7 @@ class Plane : public Primitive
       //! Instantiates a new plane primitive.
       /*! \param plane An existing plane to copy from.
        */
-      Plane(const Plane &plane);
+      explicit Plane(const Plane &plane);
 
       //! Instantiates a new plane primitive.
       /*! \param point A point on the plane.

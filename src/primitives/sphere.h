@@ -38,7 +38,7 @@ class Sphere : public Primitive
       //! Instantiates a new sphere primitive.
       /*! \param sphere An existing sphere to copy from.
        */
-      Sphere(const Sphere &sphere);
+      explicit Sphere(const Sphere &sphere);
 
       //! Instantiates a new sphere primitive.
       /*! \param centre The sphere's centre.

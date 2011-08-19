@@ -26,12 +26,15 @@
 #include <string>
 
 #include "common.h"
+//#include <vmmlib/matrix.hpp>
 
 
 class RenderTarget
 {
 
    public:
+
+      RenderTarget();
 
       //! Instantiates a new render target of the given dimensions.
       /*! \param width The width of the render target.

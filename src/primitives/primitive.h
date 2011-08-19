@@ -32,6 +32,8 @@ class Primitive
 
    public:
 
+      Primitive();
+
       //! Checks whether a ray intersects with the primitive.
       /*! \param ray The ray to check for an intersection with.
        *  \param dist The distance to the closest intersection point, if one occurs.

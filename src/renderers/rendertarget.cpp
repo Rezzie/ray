@@ -22,6 +22,11 @@
 #include "renderers/rendertarget.h"
 
 
+RenderTarget::RenderTarget()
+{
+}
+
+
 RenderTarget::RenderTarget(int width, int height)
    : _width(width),
      _height(height)
