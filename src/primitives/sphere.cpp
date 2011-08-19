@@ -101,14 +101,14 @@ bool Sphere::Intersect(const Ray &ray, double &dist) const
    double denom = 2.0 * a;
 
    double t = (-b - e) / denom;
-   if (t > EPSILON)
+   if (t > kEpsilon)
    {
       dist = t;
       return true;
    }
 
    t = (-b + e) / denom;
-   if (t > EPSILON)
+   if (t > kEpsilon)
    {
       dist = t;
       return true;

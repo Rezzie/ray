@@ -75,7 +75,7 @@ bool Plane::Intersect(const Ray &ray, double &dist) const
 
    double t = (point_ - ray.Origin).dot(normal_) / ray.Direction.dot(normal_);
 
-   if (t > EPSILON)
+   if (t > kEpsilon)
    {
       dist = t;
       return true;

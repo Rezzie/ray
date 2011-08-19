@@ -23,20 +23,18 @@
 #define RAY_COMMON_H_
 
 
-//---[ Third-party Includes ]---------------------------------------------------
-
 #include <vmmlib/vector.hpp>
-
-
-//---[ Constants ]--------------------------------------------------------------
-
-static const double EPSILON = std::numeric_limits<double>::epsilon();
 
 
 //---[ Type Definitions ]-------------------------------------------------------
 
 typedef vmml::vec3d vec;
 typedef vmml::vec3f Colour;
+
+
+//---[ Constants ]--------------------------------------------------------------
+
+static const double kEpsilon = std::numeric_limits<double>::epsilon();
 
 
 #endif // RAY_COMMON_H_
