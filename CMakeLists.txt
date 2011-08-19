@@ -32,17 +32,17 @@ INCLUDE (UseDoxygen)
 INCLUDE_DIRECTORIES (include)
 INCLUDE_DIRECTORIES (src)
 
-SET (SRCS src/main.cpp
-          src/ray.cpp
-          src/scene.cpp
-          src/viewplane.cpp
-          src/primitives/plane.cpp
-          src/primitives/primitive.cpp
-          src/primitives/sphere.cpp
-          src/renderers/rendertarget.cpp
-          src/renderers/ppm.cpp
-          src/tracers/singlesphere.cpp
-          src/tracers/tracer.cpp)
+SET (SRCS src/main.cc
+          src/ray.cc
+          src/scene.cc
+          src/viewplane.cc
+          src/primitives/plane.cc
+          src/primitives/primitive.cc
+          src/primitives/sphere.cc
+          src/renderers/rendertarget.cc
+          src/renderers/ppm.cc
+          src/tracers/singlesphere.cc
+          src/tracers/tracer.cc)
 
 
 #---[ Executable ]--------------------------------------------------------------
