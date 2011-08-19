@@ -38,7 +38,7 @@ class PPM : public RenderTarget
       //! Instantiates a new PPM render target with the given dimensions.
       PPM(int width, int height);
 
-      bool Save(std::ostream &os);
+      virtual void Save(FILE *output);
 
 };
 

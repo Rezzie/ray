@@ -76,7 +76,11 @@ void Scene::Render() const
       }
 
    // Attempt to open the output file
-   std::ofstream out("render.ppm", std::ios::out | std::ios::trunc | std::ios::binary);
-   img.Save(out);
+   FILE *output = fopen("render.ppm","w");
+   if (output != NULL)
+   {
+      img.Save(output);
+      fclose(output);
+   }
 
 }

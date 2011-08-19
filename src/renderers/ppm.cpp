@@ -34,29 +34,21 @@ PPM::PPM(int width, int height)
 }
 
 
-bool PPM::Save(std::ostream &os)
+void PPM::Save(FILE *output)
 {
-   try
-   {
-      // Write the PPM header
-      os << "P6" << std::endl;
-      os << width_ << " " << height_ << std::endl;
-      os << "255" << std::endl;
+   // Write the PPM header
+   fprintf(output, "P6\n");
+   fprintf(output, "%d %d\n", width_, height_);
+   fprintf(output, "255\n");
 
-      // Write the pixels
-      for (int y = 0; y < height_; y++)
-         for (int x = 0; x < width_; x++)
-         {
-            Colour pixel = get_pixel(x, y);
-            char r = pixel.r() * 255;
-            char g = pixel.g() * 255;
-            char b = pixel.b() * 255;
-            os << r << g << b;
-         }
-      return true;
-   }
-   catch (std::exception e)
-   {
-      return false;
-   }
+   // Write the pixel data
+   Colour pixel;
+   for (int y = 0; y < height_; y++)
+      for (int x = 0; x < width_; x++)
+      {
+         pixel = get_pixel(x, y) * 255;
+         fprintf(output, "%c%c%c", static_cast<char>(pixel.r()),
+                                   static_cast<char>(pixel.g()),
+                                   static_cast<char>(pixel.b()));
+      }
 }

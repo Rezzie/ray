@@ -22,7 +22,7 @@
 #ifndef RAY_RENDERERS_RENDERTARGET_H_
 #define RAY_RENDERERS_RENDERTARGET_H_
 
-#include <iostream>
+#include <cstdio>
 
 #include "common.h"
 
@@ -52,7 +52,7 @@ class RenderTarget
        *  \retval true If the image is saved successfully.
        *  \retval false If the image wasn't saved successfully.
        */
-      virtual bool Save(std::ostream &os) = 0;
+      virtual void Save(FILE *output) = 0;
 
    protected:
 
