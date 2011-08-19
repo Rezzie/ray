@@ -23,10 +23,8 @@
 #define RAY_RENDERERS_RENDERTARGET_H_
 
 #include <iostream>
-#include <string>
 
 #include "common.h"
-//#include <vmmlib/matrix.hpp>
 
 
 class RenderTarget
@@ -34,32 +32,22 @@ class RenderTarget
 
    public:
 
+      //! Instantiates a render target.
       RenderTarget();
 
-      //! Instantiates a new render target of the given dimensions.
-      /*! \param width The width of the render target.
-       *  \param height The height of the render target.
-       */
+      //! Instantiates a new render target with the given dimensions.
       RenderTarget(int width, int height);
 
-      //! Frees all memory used by the render target.
       ~RenderTarget();
 
-      //! Gets the pixel at the given coordinates.
-      /*! \param x The X-ordinate of the pixel.
-       *  \param y The Y-ordinate of the pixel.
-       */
-      Colour GetPixel(int x, int y);
+      //! Gets the colour of the pixel at the given coordinates.
+      Colour get_pixel(int x, int y);
 
-      //! Sets the pixel at the given coordinates to the specified colour.
-      /*! \param x The X-ordinate of the pixel.
-       *  \param y The Y-ordinate of the pixel.
-       *  \param colour The colour to set the pixel to.
-       */
-      void SetPixel(int x, int y, Colour colour);
+      //! Sets the colour of the pixel at the given coordinates.
+      void set_pixel(int x, int y, Colour colour);
 
-      //! Outputs the rendered image to the given stream.
-      /*! \param os The output stream to write the file to.
+      //! Saves the rendered image to the given stream.
+      /*! \param os An output stream to write the image to.
        *  \retval true If the image is saved successfully.
        *  \retval false If the image wasn't saved successfully.
        */
@@ -67,11 +55,9 @@ class RenderTarget
 
    protected:
 
-      int _width; /*! The width of the render target. */
-      int _height; /*! The height of the render target. */
-
-      //! The pixel colour data.
-      Colour *_data;
+      int width_;     //!< The width of the render target.
+      int height_;    //!< The height of the render target.
+      Colour *data_;  //!< The pixel colour data.
 
 };
 

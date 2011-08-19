@@ -22,8 +22,6 @@
 #ifndef RAY_RENDERERS_PPM_H_
 #define RAY_RENDERERS_PPM_H_
 
-#include <iostream>
-
 #include "common.h"
 #include "renderers/rendertarget.h"
 
@@ -33,12 +31,10 @@ class PPM : public RenderTarget
 
    public:
 
+      //! Instantiates a default PPM render target.
       PPM();
 
-      //! Instantiates a new render target of the given dimensions.
-      /*! \param width The width of the render target.
-       *  \param height The height of the render target.
-       */
+      //! Instantiates a new PPM render target with the given dimensions.
       PPM(int width, int height);
 
       bool Save(std::ostream &os);

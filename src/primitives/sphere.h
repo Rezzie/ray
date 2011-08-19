@@ -64,9 +64,9 @@ class Sphere : public Primitive
 
    private:
 
-      vec    centre_;   /*! The centre point of the sphere. */
-      double radius_;   /*! The radius of the sphere. */
-      double radius2_;  /*! The square of the radius. */
+      vec    centre_;   //!< The centre point of the sphere.
+      double radius_;   //!< The radius of the sphere.
+      double radius2_;  //!< The square of the radius.
 
 };
 

@@ -72,7 +72,7 @@ void Scene::Render() const
          colour = tracer->Trace(ray);
 
          // Render the pixel
-         img.SetPixel(x, y, colour);
+         img.set_pixel(x, y, colour);
       }
 
    // Attempt to open the output file

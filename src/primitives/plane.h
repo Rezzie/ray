@@ -58,8 +58,8 @@ class Plane : public Primitive
 
    protected:
 
-      vec point_;   /*! A point on that lies on the plane. */
-      vec normal_;  /*! A normal vector to the plane. */
+      vec point_;   //!< A point on that lies on the plane.
+      vec normal_;  //!< A normal vector to the plane.
 
 };
 

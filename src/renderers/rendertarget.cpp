@@ -21,6 +21,8 @@
 
 #include "renderers/rendertarget.h"
 
+#include <cassert>
+
 
 RenderTarget::RenderTarget()
 {
@@ -28,31 +30,28 @@ RenderTarget::RenderTarget()
 
 
 RenderTarget::RenderTarget(int width, int height)
-   : _width(width),
-     _height(height)
+   : width_(width),
+     height_(height)
 {
-   _data = new Colour[width * height];
+   data_ = new Colour[width * height];
 }
 
 
 RenderTarget::~RenderTarget()
 {
-   delete[] _data;
+   delete[] data_;
 }
 
 
-Colour RenderTarget::GetPixel(int x, int y)
+Colour RenderTarget::get_pixel(int x, int y)
 {
-   if (x > _width)
-      throw std::out_of_range ("x");
-   if (y > _height)
-      throw std::out_of_range ("y");
-
-   return _data[x + y * _width];
+   assert(x < width_ && y < height_);
+   return data_[x + y * width_];
 }
 
 
-void RenderTarget::SetPixel(int x, int y, Colour colour)
+void RenderTarget::set_pixel(int x, int y, Colour colour)
 {
-   _data[x + y * _width] = colour;
+   assert(x < width_ && y < height_);
+   data_[x + y * width_] = colour;
 }
