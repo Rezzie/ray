@@ -23,60 +23,60 @@
 
 
 ViewPlane::ViewPlane()
-   : hres_(640),
-     vres_(480),
-     size_(1.0)
+    : hres_(640),
+      vres_(480),
+      size_(1.0)
 {
 }
 
 
 ViewPlane::ViewPlane(int width, int height)
-   : hres_(width),
-     vres_(height),
-     size_(1.0)
+    : hres_(width),
+      vres_(height),
+      size_(1.0)
 {
 }
 
 
 ViewPlane::ViewPlane(int width, int height, double size)
-   : hres_(width),
-     vres_(height),
-     size_(size)
+    : hres_(width),
+      vres_(height),
+      size_(size)
 {
 }
 
 
 int ViewPlane::hres() const
 {
-   return hres_;
+  return hres_;
 }
 
 
 void ViewPlane::set_hres(int value)
 {
-   hres_ = value;
+  hres_ = value;
 }
 
 
 int ViewPlane::vres() const
 {
-   return vres_;
+  return vres_;
 }
 
 
 void ViewPlane::set_vres(int value)
 {
-   vres_ = value;
+  vres_ = value;
 }
 
 
 double ViewPlane::size() const
 {
-   return size_;
+  return size_;
 }
 
 
 void ViewPlane::set_size(double value)
 {
-   size_ = value;
+  size_ = value;
 }

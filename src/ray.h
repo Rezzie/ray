@@ -29,19 +29,19 @@
 struct Ray
 {
 
-   public:
+ public:
 
-      //! Instantiates a default ray.
-      Ray();
+  //! Instantiates a default ray.
+  Ray();
 
-      //! Copies an existing ray.
-      Ray(const Ray &ray);
+  //! Copies an existing ray.
+  Ray(const Ray &ray);
 
-      //! Instantiates a new ray with the given origin and direction.
-      Ray(const Vector3 &origin, const Vector3 &direction);
+  //! Instantiates a new ray with the given origin and direction.
+  Ray(const Vector3 &origin, const Vector3 &direction);
 
-      Vector3 origin;     //!< The ray's origin.
-      Vector3 direction;  //!< The ray's direction. This should always be normalised.
+  Vector3 origin;     //!< The ray's origin.
+  Vector3 direction;  //!< The ray's direction. This should always be normalised.
 
 };
 

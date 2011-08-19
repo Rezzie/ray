@@ -33,23 +33,23 @@ class Scene;
 class Tracer
 {
 
-  public:
+ public:
 
-   //! Instantiates a default tracer.
-   Tracer();
+  //! Instantiates a default tracer.
+  Tracer();
 
-   //! Instantiates a new tracer within the specified scene.
-   Tracer(Scene *scene);
+  //! Instantiates a new tracer within the specified scene.
+  Tracer(Scene *scene);
 
-   /*! \brief Trace the given ray though the scene.
-    *  \returns The final colour of the ray.
-    */
-   virtual Colour Trace(const Ray &ray) const;
+  /*! \brief Trace the given ray though the scene.
+   *  \returns The final colour of the ray.
+   */
+  virtual Colour Trace(const Ray &ray) const;
 
-  protected:
+ protected:
 
-   //! The scene to trace.
-   Scene *scene_;
+  //! The scene to trace.
+  Scene *scene_;
 
 };
 

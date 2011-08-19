@@ -27,14 +27,14 @@
 int main(int argc, char *argv[])
 {
 
-   // Make a scene :)
-   Scene s;
-   s.Build();
+  // Make a scene :)
+  Scene s;
+  s.Build();
 
-   // Render it
-   s.Render();
+  // Render it
+  s.Render();
 
-   // All done!
-   return EXIT_SUCCESS;
+  // All done!
+  return EXIT_SUCCESS;
 
 }

@@ -25,15 +25,18 @@
 
 
 RenderTarget::RenderTarget()
+    : width_(640),
+      height_(480)
 {
+  Init();
 }
 
 
 RenderTarget::RenderTarget(int width, int height)
-   : width_(width),
-     height_(height)
+    : width_(width),
+      height_(height)
 {
-   data_ = new Colour[width * height];
+   Init();
 }
 
 
@@ -54,4 +57,9 @@ void RenderTarget::set_pixel(int x, int y, Colour colour)
 {
    assert(x < width_ && y < height_);
    data_[x + y * width_] = colour;
+}
+
+void RenderTarget::Init()
+{
+   data_ = new Colour[width_ * height_];
 }

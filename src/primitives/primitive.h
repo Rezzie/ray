@@ -30,13 +30,13 @@
 class Primitive
 {
 
-   public:
+ public:
 
-      /*! \brief Checks if a ray intersects with the primitive.
-       *  \param ray The ray to check for an intersection with.
-       *  \param dist The distance to the closest intersection point, if one occurs.
-       */
-      virtual bool Intersects(const Ray &ray, double &dist) const = 0;
+  /*! \brief Checks if a ray intersects with the primitive.
+   *  \param ray The ray to check for an intersection with.
+   *  \param dist The distance to the closest intersection point, if one occurs.
+   */
+  virtual bool Intersects(const Ray &ray, double &dist) const = 0;
 
 };
 

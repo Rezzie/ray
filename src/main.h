@@ -24,6 +24,4 @@
 
 #include "common.h"
 
-
-
 #endif // RAY_MAIN_H_

@@ -34,30 +34,30 @@ class Tracer;
 class Scene
 {
 
-  public:
+ public:
 
-   //! Instantiates a default scene.
-   Scene();
+  //! Instantiates a default scene.
+  Scene();
 
-   //! Constructs a scene.
-   void Build();
+  //! Constructs a scene.
+  void Build();
 
-   //! Renders a scene.
-   void Render() const;
+  //! Renders a scene.
+  void Render() const;
 
-   // Temporarily hardcoding this.
-   Sphere sphere;
+  // Temporarily hardcoding this.
+  Sphere sphere;
 
-  private:
+ private:
 
-   //! The scene's viewing plane.
-   ViewPlane vp_;
+  //! The scene's viewing plane.
+  ViewPlane vp_;
 
-   //! The scene's background colour (for when a ray misses all primitives).
-   Colour background_;
+  //! The scene's background colour (for when a ray misses all primitives).
+  Colour background_;
 
-   //! The ray tracer used for rendering.
-   Tracer *tracer_;
+  //! The ray tracer used for rendering.
+  Tracer *tracer_;
 
 };
 

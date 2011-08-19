@@ -30,15 +30,15 @@
 class PPM : public RenderTarget
 {
 
-   public:
+ public:
 
-      //! Instantiates a default PPM render target.
-      PPM();
+  //! Instantiates a default PPM render target.
+  PPM();
 
-      //! Instantiates a new PPM render target with the given dimensions.
-      PPM(int width, int height);
+  //! Instantiates a new PPM render target with the given dimensions.
+  PPM(int width, int height);
 
-      virtual void Save(FILE *output) const;
+  virtual void Save(FILE *output) const;
 
 };
 

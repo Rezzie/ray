@@ -31,42 +31,42 @@
 class Sphere : public Primitive
 {
 
-   public:
+ public:
 
-      //! Instantiates a default sphere primitive.
-      Sphere();
+  //! Instantiates a default sphere primitive.
+  Sphere();
 
-      //! Copies an existing sphere.
-      explicit Sphere(const Sphere &sphere);
+  //! Copies an existing sphere.
+  explicit Sphere(const Sphere &sphere);
 
-      //! Instantiates a new sphere primitive from a centre point and radius.
-      Sphere(const Vector3 &centre, double radius);
+  //! Instantiates a new sphere primitive from a centre point and radius.
+  Sphere(const Vector3 &centre, double radius);
 
-      //! Instantiates a new sphere primitive from a centre point and radius.
-      Sphere(double x, double y, double z, double radius);
+  //! Instantiates a new sphere primitive from a centre point and radius.
+  Sphere(double x, double y, double z, double radius);
 
-      //! Gets the centre point of the sphere.
-      Vector3& centre();
+  //! Gets the centre point of the sphere.
+  Vector3& centre();
 
-      //! Sets the centre point of the sphere.
-      void set_centre(Vector3 &value);
+  //! Sets the centre point of the sphere.
+  void set_centre(Vector3 &value);
 
-      //! Gets the radius of the sphere.
-      double radius() const;
+  //! Gets the radius of the sphere.
+  double radius() const;
 
-      //! Gets the square of the radius of the sphere.
-      double radius_squared() const;
+  //! Gets the square of the radius of the sphere.
+  double radius_squared() const;
 
-      //! Sets the radius of the sphere.
-      void set_radius(double value);
+  //! Sets the radius of the sphere.
+  void set_radius(double value);
 
-      virtual bool Intersects(const Ray &ray, double &dist) const;
+  virtual bool Intersects(const Ray &ray, double &dist) const;
 
-   private:
+ private:
 
-      Vector3 centre_;   //!< The centre point of the sphere.
-      double  radius_;   //!< The radius of the sphere.
-      double  radius2_;  //!< The square of the radius.
+  Vector3 centre_;   //!< The centre point of the sphere.
+  double  radius_;   //!< The radius of the sphere.
+  double  radius2_;  //!< The square of the radius.
 
 };
 

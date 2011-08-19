@@ -30,12 +30,12 @@
 class SingleSphere : public Tracer
 {
 
-  public:
+ public:
 
-   SingleSphere();
-   SingleSphere(Scene *scene);
+  SingleSphere();
+  SingleSphere(Scene *scene);
 
-   virtual Colour Trace(const Ray &ray) const;
+  virtual Colour Trace(const Ray &ray) const;
 
 };
 

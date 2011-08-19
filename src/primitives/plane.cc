@@ -23,65 +23,65 @@
 
 
 Plane::Plane()
-   : point_(Vector3(0.0)),
-     normal_(Vector3(0.0, 1.0, 0.0))
+    : point_(Vector3(0.0)),
+      normal_(Vector3(0.0, 1.0, 0.0))
 {
 }
 
 
 Plane::Plane(const Plane &plane)
-   : point_(plane.point_),
-     normal_(plane.normal_)
+    : point_(plane.point_),
+      normal_(plane.normal_)
 {
 }
 
 
 Plane::Plane(const Vector3 &point, const Vector3 &normal)
-   : point_(point),
-     normal_(normal)
+    : point_(point),
+      normal_(normal)
 {
-   // Ensure the normal vector is normalised.
-   normal_.normalize();
+  // Ensure the normal vector is normalised.
+  normal_.normalize();
 }
 
 
 Vector3& Plane::normal()
 {
-   return normal_;
+  return normal_;
 }
 
 
 void Plane::set_normal(Vector3 &value)
 {
-   normal_ = value;
-   normal_.normalize();
+  normal_ = value;
+  normal_.normalize();
 }
 
 
 Vector3& Plane::point()
 {
-   return point_;
+  return point_;
 }
 
 
 void Plane::set_point(Vector3 &value)
 {
-   point_ = value;
+  point_ = value;
 }
 
 
 bool Plane::Intersects(const Ray &ray, double &dist) const
 {
 
-   double t = (point_ - ray.origin).dot(normal_) / ray.direction.dot(normal_);
+  double t = (point_ - ray.origin).dot(normal_) / ray.direction.dot(normal_);
 
-   if (t > kEpsilon)
-   {
-      dist = t;
-      return true;
-   }
+  if (t > kEpsilon)
+  {
+    dist = t;
+    return true;
+  }
 
-   // The ray is parallel to the plane
-   return false;
+  // The ray is parallel to the plane
+  return false;
 
 }

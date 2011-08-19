@@ -21,7 +21,7 @@
 
 #include "scene.h"
 
-#include <fstream>
+#include <cstdio>
 
 #include "ray.h"
 #include "renderers/ppm.h"
@@ -35,53 +35,55 @@ Scene::Scene()
 
 void Scene::Build()
 {
-   // Initialise a default view plane
-   vp_ = ViewPlane();
+  // Initialise a default view plane
+  vp_ = ViewPlane();
 
-   // Default to a black background
-   background_ = Vector3(0.0);
+  // Default to a black background
+  background_ = Vector3(0.0);
 
-   // Default sphere at origin
-   sphere = Sphere(Vector3(0.0), 85.0);
+  // Default sphere at origin
+  sphere = Sphere(Vector3(0.0), 85.0);
 
-   tracer_ = new SingleSphere(this);
+  // We've only a single sphere in the scene for now.
+  tracer_ = new SingleSphere(this);
 }
 
 
 void Scene::Render() const
 {
-   // Hardcode viewing plane's Z location (for now)
-   double z = 100.0;
 
-   // Create a render target to match the scene's viewing plane resolution.
-   PPM img = PPM(vp_.hres(), vp_.vres());
+  // Hardcode viewing plane's Z location (for now)
+  double z = 100.0;
 
-   // Create a ray to trace through the scene
-   Ray ray = Ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
-   Colour colour;
+  // Create a render target to match the scene's viewing plane resolution.
+  PPM img = PPM(vp_.hres(), vp_.vres());
 
-   // Spawn and trace a ray for each pixel in the viewing plane
-   for (int y = 0; y < vp_.vres(); ++y)
-      for (int x = 0; x < vp_.hres(); ++x)
-      {
-         // Calculate ray's origin using orthographic projection
-         double xs = vp_.size() * (x - 0.5 * (vp_.hres() - 1.0));
-         double ys = vp_.size() * (y - 0.5 * (vp_.vres() - 1.0));
-         ray.origin = Vector3(xs, ys, z);
+  // Create a ray to trace through the scene
+  Ray ray = Ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
+  Colour colour;
 
-         // Trace the ray through the scene
-         colour = tracer_->Trace(ray);
+  // Spawn and trace a ray for each pixel in the viewing plane
+  for (int y = 0; y < vp_.vres(); ++y)
+    for (int x = 0; x < vp_.hres(); ++x)
+    {
+      // Calculate ray's origin using orthographic projection
+      double xs = vp_.size() * (x - 0.5 * (vp_.hres() - 1.0));
+      double ys = vp_.size() * (y - 0.5 * (vp_.vres() - 1.0));
+      ray.origin = Vector3(xs, ys, z);
 
-         // Render the pixel
-         img.set_pixel(x, y, colour);
-      }
+      // Trace the ray through the scene
+      colour = tracer_->Trace(ray);
 
-   // Attempt to open the output file
-   FILE *output = fopen("render.ppm", "w");
-   if (NULL != output)
-   {
-      img.Save(output);
-      fclose(output);
-   }
+      // Render the pixel
+      img.set_pixel(x, y, colour);
+    }
+
+  // Attempt to open the output file
+  FILE *output = fopen("render.ppm", "w");
+  if (NULL != output)
+  {
+    img.Save(output);
+    fclose(output);
+  }
 
 }
