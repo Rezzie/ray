@@ -19,9 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "rendertarget.h"
-
-#include <stdexcept>
+#include "renderers/rendertarget.h"
 
 
 RenderTarget::RenderTarget(int width, int height)

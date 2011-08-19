@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "singlesphere.h"
+#include "tracers/singlesphere.h"
 
-#include "../scene.h"
+#include "scene.h"
 
 
 SingleSphere::SingleSphere()

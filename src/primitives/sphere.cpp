@@ -19,9 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "sphere.h"
-
-#include "../ray.h"
+#include "primitives/sphere.h"
 
 
 Sphere::Sphere()

@@ -22,11 +22,8 @@
 #ifndef _INCLUDED_88AFB763CCA647E8
 #define _INCLUDED_88AFB763CCA647E8
 
-#include "../common.h"
-#include "primitive.h"
-
-// Forward declaration
-class Ray;
+#include "common.h"
+#include "primitives/primitive.h"
 
 
 //! A sphere primitive.

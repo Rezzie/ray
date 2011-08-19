@@ -22,11 +22,8 @@
 #ifndef _INCLUDED_A644FC0CD69E4D96
 #define _INCLUDED_A644FC0CD69E4D96
 
-#include "../common.h"
-#include "primitive.h"
-
-// Forward declarations
-class Ray;
+#include "common.h"
+#include "primitives/primitive.h"
 
 
 //! A plane primitive.

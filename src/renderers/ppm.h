@@ -22,11 +22,10 @@
 #ifndef _INCLUDED_7770A54E803F4920
 #define _INCLUDED_7770A54E803F4920
 
-#include "../common.h"
-
-#include "rendertarget.h"
-
 #include <iostream>
+
+#include "common.h"
+#include "renderers/rendertarget.h"
 
 
 class PPM : public RenderTarget

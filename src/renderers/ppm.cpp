@@ -19,11 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ppm.h"
-
-#include "rendertarget.h"
-
-using namespace std;
+#include "renderers/ppm.h"
 
 
 PPM::PPM(int width, int height)
@@ -32,14 +28,14 @@ PPM::PPM(int width, int height)
 }
 
 
-bool PPM::Save(ostream &os)
+bool PPM::Save(std::ostream &os)
 {
    try
    {
       // Write the PPM header
-      os << "P3" << endl;
-      os << _width << " " << _height << endl;
-      os << "1" << endl;
+      os << "P3" << std::endl;
+      os << _width << " " << _height << std::endl;
+      os << "1" << std::endl;
 
       // Write the pixels
       for (int y = 0; y < _height; y++)
@@ -52,7 +48,7 @@ bool PPM::Save(ostream &os)
             int b = (int) pixel.b() * 255;
             os << r << " " << g << " " << b << " ";
          }
-         os << endl;
+         os << std::endl;
       }
 
       return true;

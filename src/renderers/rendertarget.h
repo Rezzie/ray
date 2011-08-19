@@ -22,10 +22,10 @@
 #ifndef _INCLUDED_62FAB5E09A7D41FF
 #define _INCLUDED_62FAB5E09A7D41FF
 
-#include "../common.h"
-
 #include <iostream>
 #include <string>
+
+#include "common.h"
 
 
 class RenderTarget

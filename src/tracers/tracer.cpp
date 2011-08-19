@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "tracer.h"
+#include "tracers/tracer.h"
 
 
 Tracer::Tracer()

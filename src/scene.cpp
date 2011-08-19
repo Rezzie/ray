@@ -21,10 +21,11 @@
 
 #include "scene.h"
 
+#include <fstream>
+
+#include "ray.h"
 #include "renderers/ppm.h"
 #include "tracers/singlesphere.h"
-
-#include <fstream>
 
 
 Scene::Scene()

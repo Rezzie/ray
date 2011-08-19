@@ -22,7 +22,7 @@
 #ifndef _INCLUDED_F16A6E26CB52441D
 #define _INCLUDED_F16A6E26CB52441D
 
-#include "../common.h"
+#include "common.h"
 
 // Forward declarations
 class Ray;

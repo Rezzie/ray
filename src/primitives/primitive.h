@@ -22,9 +22,8 @@
 #ifndef _INCLUDED_6AADDAD8406C40EA
 #define _INCLUDED_6AADDAD8406C40EA
 
-#include "../common.h"
-
-#include "../ray.h"
+#include "common.h"
+#include "ray.h"
 
 
 //! An abstract base class for all primitive objects.

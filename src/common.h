@@ -28,16 +28,6 @@
 #include <vmmlib/vector.hpp>
 
 
-//---[ Standard Library Includes ]----------------------------------------------
-
-#include <limits>
-
-
-//---[ Namespace Scoping ]------------------------------------------------------
-
-using namespace vmml;
-
-
 //---[ Constants ]--------------------------------------------------------------
 
 static const double EPSILON = std::numeric_limits<double>::epsilon();
@@ -45,8 +35,8 @@ static const double EPSILON = std::numeric_limits<double>::epsilon();
 
 //---[ Type Definitions ]-------------------------------------------------------
 
-typedef vec3d vec;
-typedef vec3f Colour;
+typedef vmml::vec3d vec;
+typedef vmml::vec3f Colour;
 
 
 #endif // _INCLUDED_F349F6A9146249CF

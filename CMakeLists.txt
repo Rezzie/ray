@@ -30,6 +30,7 @@ INCLUDE (UseDoxygen)
 #---[ Project Sources ]---------------------------------------------------------
 
 INCLUDE_DIRECTORIES (include)
+INCLUDE_DIRECTORIES (src)
 
 SET (SRCS src/main.cpp
           src/ray.cpp

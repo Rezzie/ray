@@ -22,13 +22,11 @@
 #ifndef _INCLUDED_4E1D6C0DBB9C4562
 #define _INCLUDED_4E1D6C0DBB9C4562
 
-#include "../common.h"
+#include "common.h"
+#include "tracers/tracer.h"
 
-#include "tracer.h"
-
-// // Forward declarations
+// Forward declarations
 class Ray;
-class Scene;
 
 
 class SingleSphere : public Tracer
