@@ -23,75 +23,75 @@
 
 
 Sphere::Sphere()
-   : c(vec(0.0)),
-     r(1.0),
-     r2(1.0)
+   : centre_(vec(0.0)),
+     radius_(1.0),
+     radius2_(1.0)
 {
 }
 
 
 Sphere::Sphere(const Sphere &sphere)
-   : c(sphere.c),
-     r(sphere.r),
-     r2(sphere.r * sphere.r)
+   : centre_(sphere.centre_),
+     radius_(sphere.radius_),
+     radius2_(sphere.radius_ * sphere.radius_)
 {
 }
 
 
 Sphere::Sphere(const vec &centre, double radius)
-   : c(centre),
-     r(radius),
-     r2(radius * radius)
+   : centre_(centre),
+     radius_(radius),
+     radius2_(radius * radius)
 {
 }
 
 
 Sphere::Sphere(double x, double y, double z, double radius)
-   : c(vec(x, y, z)),
-     r(radius),
-     r2(radius * radius)
+   : centre_(vec(x, y, z)),
+     radius_(radius),
+     radius2_(radius * radius)
 {
 }
 
 
-vec& Sphere::GetCentre()
+vec& Sphere::get_centre()
 {
-   return c;
+   return centre_;
 }
 
 
-void Sphere::SetCentre(vec &value)
+void Sphere::set_centre(vec &value)
 {
-   c = value;
+   centre_ = value;
 }
 
 
-double Sphere::GetRadius()
+double Sphere::get_radius()
 {
-   return r;
+   return radius_;
 }
 
 
-double Sphere::GetRadiusSq()
+double Sphere::get_radius_squared()
 {
-   return r2;
+   return radius2_;
 }
 
 
-void Sphere::SetRadius(double value)
+void Sphere::set_radius(double value)
 {
-   r = value;
-   r2 = value * value;
+   radius_ = value;
+   radius2_ = value * value;
 }
 
 
 bool Sphere::Intersect(const Ray &ray, double &dist) const
 {
 
-   vec  o2c  = ray.Origin - c;
+   vec origin_to_centre = ray.Origin - centre_;
    double a    = ray.Direction.dot(ray.Direction);
-   double b    = 2.0 * o2c.dot(ray.Direction);
-   double c    = o2c.dot(o2c) - r2;
+   double b    = 2.0 * origin_to_centre.dot(ray.Direction);
+   double c    = origin_to_centre.dot(origin_to_centre) - radius2_;
    double disc = (b * b) - 4.0 * a * c;
 
    if (disc < 0.0)

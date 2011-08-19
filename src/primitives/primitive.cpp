@@ -20,7 +20,3 @@
  */
 
 #include "primitives/primitive.h"
-
-Primitive::Primitive()
-{
-}

@@ -24,6 +24,7 @@
 
 #include "common.h"
 #include "primitives/primitive.h"
+#include "ray.h"
 
 
 //! A plane primitive.
@@ -35,42 +36,30 @@ class Plane : public Primitive
       //! Instantiates a default plane primitive.
       Plane();
 
-      //! Instantiates a new plane primitive.
-      /*! \param plane An existing plane to copy from.
-       */
+      //! Instantiates a new plane by copying an existing one.
       explicit Plane(const Plane &plane);
 
-      //! Instantiates a new plane primitive.
-      /*! \param point A point on the plane.
-       *  \param normal A normal vector to the plane.
-       */
+      //! Instantiates a new plane from a point and normal vector to the surface.
       Plane(const vec &point, const vec &normal);
 
       //! Gets a normal vector to the plane.
-      vec& GetNormal();
+      vec& get_normal();
 
-      //! Sets a normal vector to the plane.
-      /*! \param value A normal vector to the plane.
-       */
-      void SetNormal(vec &value);
+      //! Sets the normal vector to the plane.
+      void set_normal(vec &value);
 
       //! Gets a point on the plane.
-      vec& GetPoint();
+      vec& get_point();
 
       //! Sets a point on the plane.
-      /*! \param value A point on the plane.
-       */
-      void SetPoint(vec &value);
+      void set_point(vec &value);
 
       virtual bool Intersect(const Ray &ray, double &dist) const;
 
    protected:
 
-      //! A point on the plane.
-      vec a;
-
-      //! A normal vector to the plane.
-      vec n;
+      vec point_;   /*! A point on that lies on the plane. */
+      vec normal_;  /*! A normal vector to the plane. */
 
 };
 

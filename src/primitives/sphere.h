@@ -24,6 +24,7 @@
 
 #include "common.h"
 #include "primitives/primitive.h"
+#include "ray.h"
 
 
 //! A sphere primitive.
@@ -35,51 +36,37 @@ class Sphere : public Primitive
       //! Instantiates a default sphere primitive.
       Sphere();
 
-      //! Instantiates a new sphere primitive.
-      /*! \param sphere An existing sphere to copy from.
-       */
+      //! Instantiates a new sphere by copying an existing one.
       explicit Sphere(const Sphere &sphere);
 
-      //! Instantiates a new sphere primitive.
-      /*! \param centre The sphere's centre.
-       *  \param radius The sphere's radius.
-       */
+      //! Instantiates a new sphere primitive from a centre point and radius.
       Sphere(const vec &centre, double radius);
 
-      //! Instantiates a new sphere primitive.
-      /*! \param x The X-ordinate of the sphere's centre.
-       *  \param y The Y-ordinate of the sphere's centre.
-       *  \param z The Z-ordinate of the sphere's centre.
-       *  \param radius The sphere's radius.
-       */
+      //! Instantiates a new sphere primitive from a centre point and radius.
       Sphere(double x, double y, double z, double radius);
 
-      //! Gets the sphere's centre.
-      vec& GetCentre();
+      //! Gets the centre point of the sphere.
+      vec& get_centre();
 
-      //! Sets the sphere's centre.
-      /*! \param value The new centre of the sphere.
-       */
-      void SetCentre(vec &value);
+      //! Sets the centre point of the sphere.
+      void set_centre(vec &value);
 
-      //! Gets the sphere's radius.
-      double GetRadius();
+      //! Gets the radius of the sphere.
+      double get_radius();
 
-      //! Gets the square of the sphere's radius.
-      double GetRadiusSq();
+      //! Gets the square of the radius of the sphere.
+      double get_radius_squared();
 
-      //! Sets the sphere's radius.
-      /*! \param value The new radius of the sphere.
-       */
-      void SetRadius(double value);
+      //! Sets the radius of the sphere.
+      void set_radius(double value);
 
       virtual bool Intersect(const Ray &ray, double &dist) const;
 
    private:
 
-      vec  c;  /*! The sphere's centre. */
-      double r;  /*! The sphere's radius. */
-      double r2; /*! The square of the sphere's radius. */
+      vec    centre_;   /*! The centre point of the sphere. */
+      double radius_;   /*! The radius of the sphere. */
+      double radius2_;  /*! The square of the radius. */
 
 };
 

@@ -23,57 +23,57 @@
 
 
 Plane::Plane()
-   : a(vec(0.0)),
-     n(vec(0.0, 1.0, 0.0))
+   : point_(vec(0.0)),
+     normal_(vec(0.0, 1.0, 0.0))
 {
 }
 
 
 Plane::Plane(const Plane &plane)
-   : a(plane.a),
-     n(plane.n)
+   : point_(plane.point_),
+     normal_(plane.normal_)
 {
 }
 
 
 Plane::Plane(const vec &point, const vec &normal)
-   : a(point),
-     n(normal)
+   : point_(point),
+     normal_(normal)
 {
    // Ensure the normal vector is normalised.
-   n.normalize();
+   normal_.normalize();
 }
 
 
-vec& Plane::GetNormal()
+vec& Plane::get_normal()
 {
-   return n;
+   return normal_;
 }
 
 
-void Plane::SetNormal(vec &value)
+void Plane::set_normal(vec &value)
 {
-   n = value;
-   n.normalize();
+   normal_ = value;
+   normal_.normalize();
 }
 
 
-vec& Plane::GetPoint()
+vec& Plane::get_point()
 {
-   return a;
+   return point_;
 }
 
 
-void Plane::SetPoint(vec &value)
+void Plane::set_point(vec &value)
 {
-   a = value;
+   point_ = value;
 }
 
 
 bool Plane::Intersect(const Ray &ray, double &dist) const
 {
 
-   double t = (a - ray.Origin).dot(n) / ray.Direction.dot(n);
+   double t = (point_ - ray.Origin).dot(normal_) / ray.Direction.dot(normal_);
 
    if (t > EPSILON)
    {
