@@ -41,6 +41,7 @@ SET (SRCS src/main.cc
           src/primitives/sphere.cc
           src/renderers/rendertarget.cc
           src/renderers/ppm.cc
+          src/samplers/sampler.cc
           src/tracers/tracer.cc)
 
 
