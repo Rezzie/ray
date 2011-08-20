@@ -32,7 +32,9 @@ class Primitive
 
  public:
 
-  //! Instantiates a default primitive.
+  /*! @brief Instantiates a default primitive.
+   *  @details The primitive's colour will be set to the value of #kDefaultColour.
+   */
   Primitive();
 
   //! Instantiates a primitive with the given colour.
@@ -44,9 +46,9 @@ class Primitive
   //! Sets the colour of the primitive.
   void set_colour(RGBColour &value);
 
-  /*! \brief Checks if a ray intersects with the primitive.
-   *  \param ray The ray to check for an intersection with.
-   *  \param dist The distance to the closest intersection point, if one occurs.
+  /*! @brief Checks if a ray intersects with the primitive.
+   *  @param ray  The ray to check for an intersection with.
+   *  @param dist The distance to the closest intersection point, if one occurs.
    */
   virtual bool Intersects(const Ray &ray, double &dist) const = 0;
 

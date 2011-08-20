@@ -33,15 +33,17 @@ class Sphere : public Primitive
 
  public:
 
-  //! Instantiates a default sphere primitive.
+  /*! @brief Instantiates a default sphere primitive.
+   *  @details The colour will be the value of #kDefaultColour, the centre point
+   *           will be #kDefaultCentre and its radius will be #kDefaultRadius.
+   */
   Sphere();
 
   //! Copies an existing sphere.
   explicit Sphere(const Sphere &sphere);
 
-  /*! \brief Instantiates a new sphere primitive from a centre point and radius.
-   *  \details The sphere's colour will be set to the value of kDefaultColour.
-   *  \todo Make kDefaultColour a link to primitive.cpp.
+  /*! @brief Instantiates a new sphere primitive from a centre point and radius.
+   *  @details The colour will be the value of #kDefaultColour.
    */
   Sphere(const Point3 &centre, double radius);
 

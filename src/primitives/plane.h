@@ -33,13 +33,19 @@ class Plane : public Primitive
 
  public:
 
-  //! Instantiates a default plane primitive.
+  /*! @brief Instantiates a default plane primitive.
+   *  @details The colour will be the value of #kDefaultColour, the point
+   *           defining it will be #kDefaultPoint and its surface normal will be
+   *           #kDefaultNormal.
+   */
   Plane();
 
   //! Copies an existing plane.
   explicit Plane(const Plane &plane);
 
-  //! Instantiates a new plane from a point and normal vector to the surface.
+  /*! @brief Instantiates a new plane from a point and normal vector to the surface.
+   *  @details The colour will be the value of #kDefaultColour.
+   */
   Plane(const Point3 &point, const Normal3 &normal);
 
   //! Instantiates a new plane from a point, normal vector to the surface and colour.

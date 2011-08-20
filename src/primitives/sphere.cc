@@ -21,7 +21,9 @@
 
 #include "primitives/sphere.h"
 
+//! The default centre point of a sphere primitive, if not overridden.
 static const Point3 kDefaultCentre = Point3(0.0);
+//! The default radius of a sphere primitive, if not overridden.
 static const double kDefaultRadius = 1.0;
 
 

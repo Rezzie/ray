@@ -41,8 +41,8 @@ class Tracer
   //! Instantiates a new tracer within the specified scene.
   Tracer(Scene *scene);
 
-  /*! \brief Trace the given ray though the scene.
-   *  \returns The final colour of the ray.
+  /*! @brief Trace the given ray though the scene.
+   *  @returns The final colour of the ray.
    */
   virtual RGBColour Trace(const Ray &ray) const;
 

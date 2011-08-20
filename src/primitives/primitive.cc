@@ -21,7 +21,8 @@
 
 #include "primitives/primitive.h"
 
-static const RGBColour kDefaultColour = RGBColour(0.0);  // Black
+//! The default colour of a primitive, if not overridden.
+static const RGBColour kDefaultColour = RGBColour(0.0);
 
 
 Primitive::Primitive()

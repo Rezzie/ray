@@ -21,10 +21,14 @@
 
 #include "viewplane.h"
 
-static const int kDefaultHRes = 640;
-static const int kDefaultVRes = 480;
-static const double kDefaultSize = 1.0;
-static const int kDefaultSamples = 1;
+//! The default horizontal resolution of a viewing plane, if not overridden.
+static const int    kDefaultHRes    = 640;
+//! The default vertical resolution of a viewing plane, if not overridden.
+static const int    kDefaultVRes    = 480;
+//! The default size of a pixel in a viewing plane, if not overridden.
+static const double kDefaultSize    = 1.0;
+//! The default number of samples per pixel of a viewing plane, if not overridden.
+static const int    kDefaultSamples = 1;
 
 
 ViewPlane::ViewPlane()

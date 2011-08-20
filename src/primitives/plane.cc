@@ -21,7 +21,9 @@
 
 #include "primitives/plane.h"
 
-static const Point3 kDefaultPoint = Point3(0.0);
+//! The default point of a plane primitive, if not overridden.
+static const Point3  kDefaultPoint  = Point3(0.0);
+//! The default surface normal of a plane primitive, if not overridden.
 static const Normal3 kDefaultNormal = Normal3(0.0, 1.0, 0.0);
 
 

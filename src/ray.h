@@ -40,8 +40,13 @@ struct Ray
   //! Instantiates a new ray with the given origin and direction.
   Ray(const Point3 &origin, const Vector3 &direction);
 
-  Point3  origin;     //!< The ray's origin.
-  Vector3 direction;  //!< The ray's direction. This should always be normalised.
+  //! The ray's origin.
+  Point3  origin;
+
+  /*! @brief The ray's direction.
+   *  @note This should always be normalised.
+   */
+  Vector3 direction;
 
 };
 

@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+ /*! @file common.h */
+
 #ifndef RAY_COMMON_H_
 #define RAY_COMMON_H_
 
@@ -27,7 +29,7 @@
 
 //---[ Type Definitions ]-------------------------------------------------------
 
-typedef vmml::vec3d Normal3;    //!< Normal vectors.
+typedef vmml::vec3d Normal3;    //!< A 3-dimensional normal vector.
 typedef vmml::vec3d Point3;     //!< A 3-dimensional point.
 typedef vmml::vec3d Vector3;    //!< A 3-dimensional vector.
 typedef vmml::vec3f RGBColour;  //!< A red/green/blue tuple.
@@ -35,7 +37,10 @@ typedef vmml::vec3f RGBColour;  //!< A red/green/blue tuple.
 
 //---[ Constants ]--------------------------------------------------------------
 
+//! The difference between 1 and the least value greater than 1 that is representable by a double.
 static const double kEpsilon = std::numeric_limits<double>::epsilon();
+//! The maximum finite value of a double.
 static const double kHugeVal = std::numeric_limits<double>::max();
+
 
 #endif // RAY_COMMON_H_

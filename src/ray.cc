@@ -21,7 +21,9 @@
 
 #include "ray.h"
 
-static const Point3 kDefaultOrigin = Point3(0.0);
+//! The default origin of a ray, if not overridden.
+static const Point3  kDefaultOrigin    = Point3(0.0);
+//! The default direction of a ray, if not overridden.
 static const Vector3 kDefaultDirection = Vector3(0.0, 0.0, 1.0);
 
 
