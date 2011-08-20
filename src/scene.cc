@@ -73,7 +73,7 @@ void Scene::set_vp(ViewPlane &value)
 void Scene::Build()
 {
   // Initialise a default view plane
-  vp_ = ViewPlane(300, 300, 1);
+  vp_ = ViewPlane(300, 300, 16);
 
   // Default to a fuchsia background
   background_colour_ = RGBColour();
@@ -107,8 +107,12 @@ void Scene::Render() const
   for (int y = 0; y < vp_.vres(); ++y)
     for (int x = 0; x < vp_.hres(); ++x)
     {
-      colour.set(0.0); // Set default colour as black
 
+      // Set default colour as black
+      colour.set(0.0);
+
+/*
+      // Antialising - regular sampling
       for (int sy = 0; sy < n; ++sy)
         for (int sx = 0; sx < n; ++sx)
         {
@@ -120,6 +124,36 @@ void Scene::Render() const
           // Trace the ray through the scene
           colour += tracer_->Trace(ray);
         }
+*/
+
+      #define rand_float() ((float) rand() / (float) RAND_MAX)
+/*
+      // Antialiasing - random sample
+      for (int sy = 0; sy < n; ++sy)
+        for (int sx = 0; sx < n; ++sx)
+        {
+          // Calculate ray's origin using orthographic projection
+          double xs = vp_.size() * (x - 0.5 * vp_.hres() + (sx + 0.5) / n);
+          double ys = vp_.size() * (y - 0.5 * vp_.vres() + (sy + 0.5) / n);
+          ray.origin = Point3(xs, ys, z);
+
+          // Trace the ray through the scene
+          colour += tracer_->Trace(ray);
+        }
+*/
+      // Antialiasing - jittered sampling
+      for (int sy = 0; sy < n; ++sy)
+        for (int sx = 0; sx < n; ++sx)
+        {
+          // Calculate ray's origin using orthographic projection
+          double xs = vp_.size() * (x - 0.5 * vp_.hres() + rand_float());
+          double ys = vp_.size() * (y - 0.5 * vp_.vres() + rand_float());
+          ray.origin = Point3(xs, ys, z);
+
+          // Trace the ray through the scene
+          colour += tracer_->Trace(ray);
+        }
+
         colour /= vp_.samples();
 
       // Draw the image row-by-row, starting at the bottom-left pixel
