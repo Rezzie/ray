@@ -21,8 +21,8 @@
 
 #include "primitives/plane.h"
 
-static const Point3  kDefaultPoint = Vector3(0.0);
-static const Normal3 kDefaultNormal = Vector3(0.0, 1.0, 0.0);
+static const Point3 kDefaultPoint = Point3(0.0);
+static const Normal3 kDefaultNormal = Normal3(0.0, 1.0, 0.0);
 
 
 Plane::Plane()

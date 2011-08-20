@@ -21,8 +21,8 @@
 
 #include "viewplane.h"
 
-static const int kDefaultHRes = 480;
-static const int kDefaultVRes = 640;
+static const int kDefaultHRes = 640;
+static const int kDefaultVRes = 480;
 static const double kDefaultSize = 1.0;
 
 

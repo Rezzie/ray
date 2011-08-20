@@ -74,10 +74,10 @@ void Scene::Build()
   vp_ = ViewPlane();
 
   // Default to a fuchsia background
-  background_colour_ = RGBColour(1.0, 0.0, 1.0);
+  background_colour_ = RGBColour();
 
   // Default sphere at origin
-  objects.push_back(new Sphere(Vector3(0.0), 85.0, RGBColour(0.0, 1.0, 0.0)));
+  objects.push_back(new Sphere(Point3(0.0), 85.0, RGBColour(1.0, 0.0, 0.0)));
 
   // We've only a single sphere in the scene for now.
   tracer_ = new Tracer(this);
@@ -94,7 +94,7 @@ void Scene::Render() const
   PPM img = PPM(vp_.hres(), vp_.vres());
 
   // Create a ray to trace through the scene
-  Ray ray = Ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
+  Ray ray = Ray(Point3(0.0), Vector3(0.0, 0.0, -1.0));
   RGBColour colour;
 
   // Spawn and trace a ray for each pixel in the viewing plane
@@ -104,7 +104,7 @@ void Scene::Render() const
       // Calculate ray's origin using orthographic projection
       double xs = vp_.size() * (x - 0.5 * (vp_.hres() - 1.0));
       double ys = vp_.size() * (y - 0.5 * (vp_.vres() - 1.0));
-      ray.origin = Vector3(xs, ys, z);
+      ray.origin = Point3(xs, ys, z);
 
       // Trace the ray through the scene
       colour = tracer_->Trace(ray);

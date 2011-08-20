@@ -34,6 +34,7 @@ Tracer::Tracer(Scene *scene)
     : scene_(scene)
 {}
 
+
 RGBColour Tracer::Trace(const Ray &ray) const
 {
 
