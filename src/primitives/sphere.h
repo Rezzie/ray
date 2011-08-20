@@ -40,8 +40,8 @@ class Sphere : public Primitive
   explicit Sphere(const Sphere &sphere);
 
   /*! \brief Instantiates a new sphere primitive from a centre point and radius.
-   *
-   *  The sphere's colour will be set to the value of kDefaultColour.
+   *  \details The sphere's colour will be set to the value of kDefaultColour.
+   *  \todo Make kDefaultColour a link to primitive.cpp.
    */
   Sphere(const Point3 &centre, double radius);
 
