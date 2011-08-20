@@ -44,7 +44,7 @@ class Tracer
   /*! \brief Trace the given ray though the scene.
    *  \returns The final colour of the ray.
    */
-  virtual Colour Trace(const Ray &ray) const;
+  virtual RGBColour Trace(const Ray &ray) const;
 
  protected:
 

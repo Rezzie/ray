@@ -24,6 +24,8 @@
 
 #include "common.h"
 
+#include <vector>
+
 #include "primitives/sphere.h"
 #include "viewplane.h"
 
@@ -39,25 +41,46 @@ class Scene
   //! Instantiates a default scene.
   Scene();
 
+  //! Gets the background colour of the scene.
+  RGBColour& background_colour();
+
+  //! Sets the background colour of the scene.
+  void set_background_colour(RGBColour &value);
+
+  //! Gets the tracer used to trace rays through the scene.
+  Tracer* tracer();
+
+  //! Sets the tracer used to trace rays through the scene.
+  void set_tracer(Tracer *value);
+
+  //! Gets the viewing plane of the scene.
+  ViewPlane& vp();
+
+  //! Sets the viewing plane of the scene.
+  void set_vp(ViewPlane &value);
+
+  //! Adds an object to the scene.
+  void AddObject(Primitive *object);
+
   //! Constructs a scene.
   void Build();
 
   //! Renders a scene.
   void Render() const;
 
-  // Temporarily hardcoding this.
-  Sphere sphere;
+  //! A list of objects in the scene.
+  std::vector<Primitive *> objects;
 
  private:
+
+  //! The ray tracer used for rendering.
+  Tracer *tracer_;
 
   //! The scene's viewing plane.
   ViewPlane vp_;
 
   //! The scene's background colour (for when a ray misses all primitives).
-  Colour background_;
-
-  //! The ray tracer used for rendering.
-  Tracer *tracer_;
+  RGBColour background_colour_;
 
 };
 

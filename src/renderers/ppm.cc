@@ -26,14 +26,12 @@
 
 PPM::PPM()
     : RenderTarget()
-{
-}
+{}
 
 
 PPM::PPM(int width, int height)
     : RenderTarget(width, height)
-{
-}
+{}
 
 
 void PPM::Save(FILE *output) const
@@ -45,7 +43,7 @@ void PPM::Save(FILE *output) const
   fprintf(output, "255\n");
 
   // Write the pixel data
-  Colour pixel;
+  RGBColour pixel;
   for (int y = 0; y < height_; ++y)
     for (int x = 0; x < width_; ++x)
     {

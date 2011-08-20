@@ -21,46 +21,49 @@
 
 #include "primitives/sphere.h"
 
+static const Point3 kDefaultCentre = Point3(0.0);
+static const double kDefaultRadius = 1.0;
+
 
 Sphere::Sphere()
-    : centre_(Vector3(0.0)),
-      radius_(1.0),
-      radius2_(1.0)
-{
-}
+    : Primitive(),
+      centre_(kDefaultCentre),
+      radius_(kDefaultRadius),
+      radius2_(kDefaultRadius * kDefaultRadius)
+{}
 
 
 Sphere::Sphere(const Sphere &sphere)
-    : centre_(sphere.centre_),
+    : Primitive(sphere.colour_),
+      centre_(sphere.centre_),
       radius_(sphere.radius_),
       radius2_(sphere.radius_ * sphere.radius_)
-{
-}
+{}
 
 
-Sphere::Sphere(const Vector3 &centre, double radius)
-    : centre_(centre),
+Sphere::Sphere(const Point3 &centre, double radius)
+    : Primitive(),
+      centre_(centre),
       radius_(radius),
       radius2_(radius * radius)
-{
-}
+{}
 
 
-Sphere::Sphere(double x, double y, double z, double radius)
-    : centre_(Vector3(x, y, z)),
+Sphere::Sphere(const Point3 &centre, double radius, const RGBColour &colour)
+    : Primitive(colour),
+      centre_(centre),
       radius_(radius),
       radius2_(radius * radius)
-{
-}
+{}
 
 
-Vector3& Sphere::centre()
+Point3& Sphere::centre()
 {
   return centre_;
 }
 
 
-void Sphere::set_centre(Vector3 &value)
+void Sphere::set_centre(Point3 &value)
 {
   centre_ = value;
 }

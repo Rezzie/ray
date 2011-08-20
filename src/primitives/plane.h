@@ -40,26 +40,29 @@ class Plane : public Primitive
   explicit Plane(const Plane &plane);
 
   //! Instantiates a new plane from a point and normal vector to the surface.
-  Plane(const Vector3 &point, const Vector3 &normal);
+  Plane(const Point3 &point, const Normal3 &normal);
+
+  //! Instantiates a new plane from a point, normal vector to the surface and colour.
+  Plane(const Point3 &point, const Normal3 &normal, const RGBColour &colour);
 
   //! Gets a normal vector to the plane.
-  Vector3& normal();
+  Normal3& normal();
 
   //! Sets the normal vector to the plane.
-  void set_normal(Vector3 &value);
+  void set_normal(Normal3 &value);
 
   //! Gets a point on the plane.
-  Vector3& point();
+  Point3& point();
 
   //! Sets a point on the plane.
-  void set_point(Vector3 &value);
+  void set_point(Point3 &value);
 
   virtual bool Intersects(const Ray &ray, double &dist) const;
 
  protected:
 
-  Vector3 point_;   //!< A point on that lies on the plane.
-  Vector3 normal_;  //!< A normal vector to the plane.
+  Point3  point_;   //!< A point on that lies on the plane.
+  Normal3 normal_;  //!< A normal vector to the plane.
 
 };
 

@@ -35,7 +35,7 @@ class SingleSphere : public Tracer
   SingleSphere();
   SingleSphere(Scene *scene);
 
-  virtual Colour Trace(const Ray &ray) const;
+  virtual RGBColourColour Trace(const Ray &ray) const;
 
 };
 

@@ -21,29 +21,30 @@
 
 #include "viewplane.h"
 
+static const int kDefaultHRes = 480;
+static const int kDefaultVRes = 640;
+static const double kDefaultSize = 1.0;
+
 
 ViewPlane::ViewPlane()
-    : hres_(640),
-      vres_(480),
-      size_(1.0)
-{
-}
+    : hres_(kDefaultHRes),
+      vres_(kDefaultVRes),
+      size_(kDefaultSize)
+{}
 
 
 ViewPlane::ViewPlane(int width, int height)
     : hres_(width),
       vres_(height),
-      size_(1.0)
-{
-}
+      size_(kDefaultSize)
+{}
 
 
 ViewPlane::ViewPlane(int width, int height, double size)
     : hres_(width),
       vres_(height),
       size_(size)
-{
-}
+{}
 
 
 int ViewPlane::hres() const

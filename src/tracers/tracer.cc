@@ -21,20 +21,39 @@
 
 #include "tracers/tracer.h"
 
+#include "primitives/primitive.h"
+#include "scene.h"
+
 
 Tracer::Tracer()
     : scene_(NULL)
-{
-}
+{}
 
 
 Tracer::Tracer(Scene *scene)
     : scene_(scene)
-{
-}
+{}
 
-Colour Tracer::Trace(const Ray &ray) const
+RGBColour Tracer::Trace(const Ray &ray) const
 {
-  // Default to just black
-  return Colour(0.0);
+
+  // If a ray misses all primitives it is set to the background colour of the scene.
+  RGBColour colour = scene_->background_colour();
+
+  double min_dist = kHugeVal; // The distance to the closest intersection (if any)
+  double dist;  // The distance to the current intersection (if any)
+
+  // Need to check for an intersection between each object in the scene
+  for (int i = 0; i < scene_->objects.size(); ++i)
+  {
+    if (scene_->objects[i]->Intersects(ray, dist) && (dist < min_dist))
+    {
+      // This is the closest intersection we've seen so far
+      min_dist = dist;
+      colour = scene_->objects[i]->colour();
+    }
+  }
+
+  return colour;
+
 }

@@ -21,23 +21,27 @@
 
 #include "primitives/plane.h"
 
+static const Point3  kDefaultPoint = Vector3(0.0);
+static const Normal3 kDefaultNormal = Vector3(0.0, 1.0, 0.0);
+
 
 Plane::Plane()
-    : point_(Vector3(0.0)),
-      normal_(Vector3(0.0, 1.0, 0.0))
-{
-}
+    : Primitive(),
+      point_(kDefaultPoint),
+      normal_(kDefaultNormal)
+{}
 
 
 Plane::Plane(const Plane &plane)
-    : point_(plane.point_),
+    : Primitive(plane.colour_),
+      point_(plane.point_),
       normal_(plane.normal_)
-{
-}
+{}
 
 
-Plane::Plane(const Vector3 &point, const Vector3 &normal)
-    : point_(point),
+Plane::Plane(const Point3 &point, const Normal3 &normal)
+    : Primitive(),
+      point_(point),
       normal_(normal)
 {
   // Ensure the normal vector is normalised.
@@ -45,26 +49,36 @@ Plane::Plane(const Vector3 &point, const Vector3 &normal)
 }
 
 
-Vector3& Plane::normal()
+Plane::Plane(const Point3 &point, const Normal3 &normal, const RGBColour &colour)
+    : Primitive(colour),
+      point_(point),
+      normal_(normal)
+{
+  // Ensure the normal vector is normalised.
+  normal_.normalize();
+}
+
+
+Normal3& Plane::normal()
 {
   return normal_;
 }
 
 
-void Plane::set_normal(Vector3 &value)
+void Plane::set_normal(Normal3 &value)
 {
   normal_ = value;
   normal_.normalize();
 }
 
 
-Vector3& Plane::point()
+Point3& Plane::point()
 {
   return point_;
 }
 
 
-void Plane::set_point(Vector3 &value)
+void Plane::set_point(Point3 &value)
 {
   point_ = value;
 }

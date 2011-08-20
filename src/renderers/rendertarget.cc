@@ -23,10 +23,13 @@
 
 #include <cassert>
 
+static const int kDefaultWidth = 640;
+static const int kDefaultHeight = 480;
+
 
 RenderTarget::RenderTarget()
-    : width_(640),
-      height_(480)
+    : width_(kDefaultWidth),
+      height_(kDefaultHeight)
 {
   Init();
 }
@@ -46,14 +49,14 @@ RenderTarget::~RenderTarget()
 }
 
 
-Colour RenderTarget::get_pixel(int x, int y) const
+RGBColour RenderTarget::get_pixel(int x, int y) const
 {
    assert(x < width_ && y < height_);
    return data_[x + y * width_];
 }
 
 
-void RenderTarget::set_pixel(int x, int y, Colour colour)
+void RenderTarget::set_pixel(int x, int y, RGBColour colour)
 {
    assert(x < width_ && y < height_);
    data_[x + y * width_] = colour;
@@ -61,5 +64,5 @@ void RenderTarget::set_pixel(int x, int y, Colour colour)
 
 void RenderTarget::Init()
 {
-   data_ = new Colour[width_ * height_];
+   data_ = new RGBColour[width_ * height_];
 }

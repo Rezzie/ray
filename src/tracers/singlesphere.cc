@@ -26,19 +26,17 @@
 
 SingleSphere::SingleSphere()
     : Tracer()
-{
-}
+{}
 
 
 SingleSphere::SingleSphere(Scene *scene)
     : Tracer(scene)
-{
-}
+{}
 
 
 Colour SingleSphere::Trace(const Ray &ray) const
 {
-  double dist; // Unusued
+  double dist;  // Unusued
 
   // If the ray intersects the sphere, colour it red
   if (scene_->sphere.Intersects(ray, dist))

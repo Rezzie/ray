@@ -20,3 +20,27 @@
  */
 
 #include "primitives/primitive.h"
+
+static const RGBColour kDefaultColour = RGBColour(0.0);  // Black
+
+
+Primitive::Primitive()
+    : colour_(kDefaultColour)
+{}
+
+
+Primitive::Primitive(const RGBColour &colour)
+    : colour_(colour)
+{}
+
+
+RGBColour& Primitive::colour()
+{
+  return colour_;
+}
+
+
+void Primitive::set_colour(RGBColour &value)
+{
+  colour_ = value;
+}

@@ -26,16 +26,16 @@
 #include "renderers/rendertarget.h"
 
 
-//! Outputs a rendered image as a (rawbits) PPM.
+//! Outputs a rendered image as a (rawbits) %PPM.
 class PPM : public RenderTarget
 {
 
  public:
 
-  //! Instantiates a default PPM render target.
+  //! Instantiates a default %PPM render target.
   PPM();
 
-  //! Instantiates a new PPM render target with the given dimensions.
+  //! Instantiates a new %PPM render target with the given dimensions.
   PPM(int width, int height);
 
   virtual void Save(FILE *output) const;

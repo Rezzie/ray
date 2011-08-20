@@ -39,17 +39,20 @@ class Sphere : public Primitive
   //! Copies an existing sphere.
   explicit Sphere(const Sphere &sphere);
 
-  //! Instantiates a new sphere primitive from a centre point and radius.
-  Sphere(const Vector3 &centre, double radius);
+  /*! \brief Instantiates a new sphere primitive from a centre point and radius.
+   *
+   *  The sphere's colour will be set to the value of kDefaultColour.
+   */
+  Sphere(const Point3 &centre, double radius);
 
-  //! Instantiates a new sphere primitive from a centre point and radius.
-  Sphere(double x, double y, double z, double radius);
+  //! Instantiates a new sphere primitive from a centre point, radius and colour.
+  Sphere(const Point3 &centre, double radius, const RGBColour &colour);
 
   //! Gets the centre point of the sphere.
-  Vector3& centre();
+  Point3& centre();
 
   //! Sets the centre point of the sphere.
-  void set_centre(Vector3 &value);
+  void set_centre(Point3 &value);
 
   //! Gets the radius of the sphere.
   double radius() const;
@@ -64,9 +67,9 @@ class Sphere : public Primitive
 
  private:
 
-  Vector3 centre_;   //!< The centre point of the sphere.
-  double  radius_;   //!< The radius of the sphere.
-  double  radius2_;  //!< The square of the radius.
+  Point3 centre_;   //!< The centre point of the sphere.
+  double radius_;   //!< The radius of the sphere.
+  double radius2_;  //!< The square of the radius.
 
 };
 

@@ -27,13 +27,15 @@
 
 //---[ Type Definitions ]-------------------------------------------------------
 
-typedef vmml::vec3d Vector3;
-typedef vmml::vec3f Colour;
+typedef vmml::vec3d Normal3;    //!< Normal vectors.
+typedef vmml::vec3d Point3;     //!< A 3-dimensional point.
+typedef vmml::vec3d Vector3;    //!< A 3-dimensional vector.
+typedef vmml::vec3f RGBColour;  //!< A red/green/blue tuple.
 
 
 //---[ Constants ]--------------------------------------------------------------
 
 static const double kEpsilon = std::numeric_limits<double>::epsilon();
-
+static const double kHugeVal = std::numeric_limits<double>::max();
 
 #endif // RAY_COMMON_H_

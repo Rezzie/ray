@@ -21,23 +21,23 @@
 
 #include "ray.h"
 
+static const Point3 kDefaultOrigin = Point3(0.0);
+static const Vector3 kDefaultDirection = Vector3(0.0, 0.0, 1.0);
+
 
 Ray::Ray()
-    : origin(Vector3(0.0)),
-      direction(Vector3(0.0, 0.0, 1.0))
-{
-}
+    : origin(kDefaultOrigin),
+      direction(kDefaultDirection)
+{}
 
 
 Ray::Ray(const Ray &ray)
     : origin(ray.origin),
       direction(ray.direction)
-{
-}
+{}
 
 
-Ray::Ray(const Vector3 &origin, const Vector3 &direction)
+Ray::Ray(const Point3 &origin, const Vector3 &direction)
     : origin(origin),
       direction(direction)
-{
-}
+{}

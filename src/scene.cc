@@ -25,11 +25,46 @@
 
 #include "ray.h"
 #include "renderers/ppm.h"
-#include "tracers/singlesphere.h"
+#include "tracers/tracer.h"
 
 
 Scene::Scene()
+{}
+
+
+RGBColour& Scene::background_colour()
 {
+  return background_colour_;
+}
+
+
+void Scene::set_background_colour(RGBColour &value)
+{
+  background_colour_ = value;
+}
+
+
+Tracer* Scene::tracer()
+{
+  return tracer_;
+}
+
+
+void Scene::set_tracer(Tracer *value)
+{
+  tracer_ = value;
+}
+
+
+ViewPlane& Scene::vp()
+{
+  return vp_;
+}
+
+
+void Scene::set_vp(ViewPlane &value)
+{
+  vp_ = value;
 }
 
 
@@ -38,14 +73,14 @@ void Scene::Build()
   // Initialise a default view plane
   vp_ = ViewPlane();
 
-  // Default to a black background
-  background_ = Vector3(0.0);
+  // Default to a fuchsia background
+  background_colour_ = RGBColour(1.0, 0.0, 1.0);
 
   // Default sphere at origin
-  sphere = Sphere(Vector3(0.0), 85.0);
+  objects.push_back(new Sphere(Vector3(0.0), 85.0, RGBColour(0.0, 1.0, 0.0)));
 
   // We've only a single sphere in the scene for now.
-  tracer_ = new SingleSphere(this);
+  tracer_ = new Tracer(this);
 }
 
 
@@ -60,7 +95,7 @@ void Scene::Render() const
 
   // Create a ray to trace through the scene
   Ray ray = Ray(Vector3(0.0), Vector3(0.0, 0.0, -1.0));
-  Colour colour;
+  RGBColour colour;
 
   // Spawn and trace a ray for each pixel in the viewing plane
   for (int y = 0; y < vp_.vres(); ++y)
