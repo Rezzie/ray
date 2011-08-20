@@ -37,8 +37,14 @@ class ViewPlane
   //! Instantiates a new viewing plane with the given resolution.
   ViewPlane(int width, int height);
 
+  //! Instantiates a new viewing plane with the given resolution and anti-aliasing sample count.
+  ViewPlane(int width, int height, int samples);
+
   //! Instantiates a new viewing plane with the given resolution and pixel size.
   ViewPlane(int width, int height, double size);
+
+  //! Instantiates a new viewing plane with the given resolution, pixel size and anti-aliasing sample count.
+  ViewPlane(int width, int height, double size, int samples);
 
   //! Gets the horizontal resolution of the viewing plane.
   int hres() const;
@@ -58,11 +64,18 @@ class ViewPlane
   //! Sets the size of each pixel in the viewing plane.
   void set_size(double value);
 
+  //! Gets the number of samnples per pixel.
+  int samples() const;
+
+  //! Sets the number of samples per pixel;
+  void set_samples(int value);
+
  private:
 
-  int    hres_;  //!< The horizontal resolution of the viewing plane.
-  int    vres_;  //!< The vertical resolution of the viewing plane.
-  double size_;  //!< The size of each pixel in the viewing plane.
+  int    hres_;     //!< The horizontal resolution of the viewing plane.
+  int    vres_;     //!< The vertical resolution of the viewing plane.
+  double size_;     //!< The size of each pixel in the viewing plane.
+  int    samples_;  //!< The number of samples per pixel.
 
 };
 

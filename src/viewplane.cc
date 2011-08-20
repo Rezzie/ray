@@ -24,26 +24,46 @@
 static const int kDefaultHRes = 640;
 static const int kDefaultVRes = 480;
 static const double kDefaultSize = 1.0;
+static const int kDefaultSamples = 1;
 
 
 ViewPlane::ViewPlane()
     : hres_(kDefaultHRes),
       vres_(kDefaultVRes),
-      size_(kDefaultSize)
+      size_(kDefaultSize),
+      samples_(kDefaultSamples)
 {}
 
 
 ViewPlane::ViewPlane(int width, int height)
     : hres_(width),
       vres_(height),
-      size_(kDefaultSize)
+      size_(kDefaultSize),
+      samples_(kDefaultSamples)
+{}
+
+
+ViewPlane::ViewPlane(int width, int height, int samples)
+    : hres_(width),
+      vres_(height),
+      size_(kDefaultSize),
+      samples_(samples)
 {}
 
 
 ViewPlane::ViewPlane(int width, int height, double size)
     : hres_(width),
       vres_(height),
-      size_(size)
+      size_(size),
+      samples_(kDefaultSamples)
+{}
+
+
+ViewPlane::ViewPlane(int width, int height, double size, int samples)
+    : hres_(width),
+      vres_(height),
+      size_(size),
+      samples_(samples)
 {}
 
 
@@ -80,4 +100,16 @@ double ViewPlane::size() const
 void ViewPlane::set_size(double value)
 {
   size_ = value;
+}
+
+
+int ViewPlane::samples() const
+{
+  return samples_;
+}
+
+
+void ViewPlane::set_samples(int value)
+{
+  samples_ = value;
 }

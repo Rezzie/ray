@@ -73,7 +73,7 @@ void Scene::set_vp(ViewPlane &value)
 void Scene::Build()
 {
   // Initialise a default view plane
-  vp_ = ViewPlane(300, 300);
+  vp_ = ViewPlane(300, 300, 1);
 
   // Default to a fuchsia background
   background_colour_ = RGBColour();
@@ -94,6 +94,8 @@ void Scene::Render() const
   // Hardcode viewing plane's Z location (for now)
   double z = 100.0;
 
+  int n = sqrt(vp_.samples());
+
   // Create a render target to match the scene's viewing plane resolution.
   PPM img = PPM(vp_.hres(), vp_.vres());
 
@@ -105,13 +107,20 @@ void Scene::Render() const
   for (int y = 0; y < vp_.vres(); ++y)
     for (int x = 0; x < vp_.hres(); ++x)
     {
-      // Calculate ray's origin using orthographic projection
-      double xs = vp_.size() * (x - 0.5 * (vp_.hres() - 1.0));
-      double ys = vp_.size() * (y - 0.5 * (vp_.vres() - 1.0));
-      ray.origin = Point3(xs, ys, z);
+      colour.set(0.0); // Set default colour as black
 
-      // Trace the ray through the scene
-      colour = tracer_->Trace(ray);
+      for (int sy = 0; sy < n; ++sy)
+        for (int sx = 0; sx < n; ++sx)
+        {
+          // Calculate ray's origin using orthographic projection
+          double xs = vp_.size() * (x - 0.5 * vp_.hres() + (sx + 0.5) / n);
+          double ys = vp_.size() * (y - 0.5 * vp_.vres() + (sy + 0.5) / n);
+          ray.origin = Point3(xs, ys, z);
+
+          // Trace the ray through the scene
+          colour += tracer_->Trace(ray);
+        }
+        colour /= vp_.samples();
 
       // Draw the image row-by-row, starting at the bottom-left pixel
       img.set_pixel(x, (vp_.vres() - 1) - y, colour);
