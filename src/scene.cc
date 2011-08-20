@@ -24,6 +24,8 @@
 #include <cstdio>
 
 #include "ray.h"
+#include "primitives/plane.h"
+#include "primitives/sphere.h"
 #include "renderers/ppm.h"
 #include "tracers/tracer.h"
 
@@ -71,13 +73,15 @@ void Scene::set_vp(ViewPlane &value)
 void Scene::Build()
 {
   // Initialise a default view plane
-  vp_ = ViewPlane();
+  vp_ = ViewPlane(300, 300);
 
   // Default to a fuchsia background
   background_colour_ = RGBColour();
 
   // Default sphere at origin
-  objects.push_back(new Sphere(Point3(0.0), 85.0, RGBColour(1.0, 0.0, 0.0)));
+  objects.push_back(new Sphere(Point3(0.0, -25.0, 0.0), 80.0, RGBColour(1.0, 0.0, 0.0)));
+  objects.push_back(new Sphere(Point3(0.0, 30.0,0.0), 60.0, RGBColour(1.0, 1.0, 0.0)));
+  objects.push_back(new Plane(Point3(0.0), Normal3(0.0, 1.0, 1.0), RGBColour(0.0, 0.3, 0.0)));
 
   // We've only a single sphere in the scene for now.
   tracer_ = new Tracer(this);
@@ -109,8 +113,8 @@ void Scene::Render() const
       // Trace the ray through the scene
       colour = tracer_->Trace(ray);
 
-      // Render the pixel
-      img.set_pixel(x, y, colour);
+      // Draw the image row-by-row, starting at the bottom-left pixel
+      img.set_pixel(x, (vp_.vres() - 1) - y, colour);
     }
 
   // Attempt to open the output file

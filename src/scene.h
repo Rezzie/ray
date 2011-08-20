@@ -26,7 +26,7 @@
 
 #include <vector>
 
-#include "primitives/sphere.h"
+#include "primitives/primitive.h"
 #include "viewplane.h"
 
 // Forward declarations
