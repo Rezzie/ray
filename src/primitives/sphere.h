@@ -54,7 +54,7 @@ class Sphere : public Primitive
   Point3& centre();
 
   //! Sets the centre point of the sphere.
-  void set_centre(Point3 &value);
+  void set_centre(const Point3 &value);
 
   //! Gets the radius of the sphere.
   double radius() const;

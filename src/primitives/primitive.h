@@ -44,7 +44,7 @@ class Primitive
   RGBColour& colour();
 
   //! Sets the colour of the primitive.
-  void set_colour(RGBColour &value);
+  void set_colour(const RGBColour &value);
 
   /*! @brief Checks if a ray intersects with the primitive.
    *  @param ray  The ray to check for an intersection with.

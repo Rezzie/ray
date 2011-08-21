@@ -56,7 +56,7 @@ RGBColour RenderTarget::get_pixel(int x, int y) const
 }
 
 
-void RenderTarget::set_pixel(int x, int y, RGBColour colour)
+void RenderTarget::set_pixel(int x, int y, const RGBColour colour)
 {
    assert(x < width_ && y < height_);
    data_[x + y * width_] = colour;

@@ -48,6 +48,7 @@ SET (SRCS src/main.cc
 #---[ Executable ]--------------------------------------------------------------
 
 ADD_EXECUTABLE (ray ${SRCS})
+TARGET_LINK_LIBRARIES (ray rt)
 
 
 #---[ Installation ]------------------------------------------------------------

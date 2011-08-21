@@ -55,13 +55,13 @@ class Plane : public Primitive
   Normal3& normal();
 
   //! Sets the normal vector to the plane.
-  void set_normal(Normal3 &value);
+  void set_normal(const Normal3 &value);
 
   //! Gets a point on the plane.
   Point3& point();
 
   //! Sets a point on the plane.
-  void set_point(Point3 &value);
+  void set_point(const Point3 &value);
 
   virtual bool Intersects(const Ray &ray, double &dist) const;
 

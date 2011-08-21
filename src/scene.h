@@ -45,7 +45,7 @@ class Scene
   RGBColour& background_colour();
 
   //! Sets the background colour of the scene.
-  void set_background_colour(RGBColour &value);
+  void set_background_colour(const RGBColour &value);
 
   //! Gets the tracer used to trace rays through the scene.
   Tracer* tracer();
@@ -57,7 +57,7 @@ class Scene
   ViewPlane& vp();
 
   //! Sets the viewing plane of the scene.
-  void set_vp(ViewPlane &value);
+  void set_vp(const ViewPlane &value);
 
   //! Adds an object to the scene.
   void AddObject(Primitive *object);

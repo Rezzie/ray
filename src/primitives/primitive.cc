@@ -41,7 +41,7 @@ RGBColour& Primitive::colour()
 }
 
 
-void Primitive::set_colour(RGBColour &value)
+void Primitive::set_colour(const RGBColour &value)
 {
   colour_ = value;
 }

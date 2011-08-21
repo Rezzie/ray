@@ -25,6 +25,7 @@
 #include "common.h"
 
 
+//! Samples a pixel multiple times to reduce aliasing and moire patterns.
 class Sampler
 {
 
@@ -32,6 +33,16 @@ class Sampler
 
   //! Instantiates a new sampler.
   Sampler();
+
+  //! Gets the number of samples per pixel.
+  int samples() const;
+
+  //! Sets the number of samples per pixel.
+  void set_samples(int value);
+
+ protected:
+
+  int samples_;  //!< The number of samples to take per pixel.
 
 };
 

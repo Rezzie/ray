@@ -67,7 +67,7 @@ Normal3& Plane::normal()
 }
 
 
-void Plane::set_normal(Normal3 &value)
+void Plane::set_normal(const Normal3 &value)
 {
   normal_ = value;
   normal_.normalize();
@@ -80,7 +80,7 @@ Point3& Plane::point()
 }
 
 
-void Plane::set_point(Point3 &value)
+void Plane::set_point(const Point3 &value)
 {
   point_ = value;
 }

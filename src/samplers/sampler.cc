@@ -23,3 +23,15 @@
 
 Sampler::Sampler()
 {}
+
+
+int Sampler::samples() const
+{
+  return samples_;
+}
+
+
+void Sampler::set_samples(int value)
+{
+  samples_ = value;
+}

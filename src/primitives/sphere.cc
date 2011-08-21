@@ -65,7 +65,7 @@ Point3& Sphere::centre()
 }
 
 
-void Sphere::set_centre(Point3 &value)
+void Sphere::set_centre(const Point3 &value)
 {
   centre_ = value;
 }
